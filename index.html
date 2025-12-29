@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>FollowersHub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:'Inter',sans-serif}
+.heading{font-family:'Poppins',sans-serif}
+.insta-gradient{
+background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4)
+}
+.active-tab{background:#000;color:#fff}
+.active-nav{color:#dd2a7b}
+.hidden{display:none}
+</style>
+</head>
+
+<body class="bg-white text-gray-800 pb-28">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center px-4 py-3 border-b">
+  <div class="flex items-center gap-2">
+    <div class="w-9 h-9 rounded-full insta-gradient"></div>
+    <span class="heading text-lg">FollowersHub</span>
+  </div>
+  <div class="flex gap-3 text-sm">
+    <button onclick="openAuth('signup')">Sign Up</button>
+    <button onclick="openAuth('login')">Login</button>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<section id="home">
+
+<!-- IMAGE GRID -->
+<div class="px-4 py-4 grid grid-cols-3 gap-2">
+  <img class="rounded-xl" src="https://source.unsplash.com/400x400/?instagram">
+  <img class="rounded-xl" src="https://source.unsplash.com/401x401/?reels">
+  <img class="rounded-xl" src="https://source.unsplash.com/402x402/?influencer">
+  <img class="rounded-xl" src="https://source.unsplash.com/403x403/?social">
+  <img class="rounded-xl" src="https://source.unsplash.com/404x404/?creator">
+  <img class="rounded-xl" src="https://source.unsplash.com/405x405/?mobile">
+</div>
+
+<!-- WALLET -->
+<div class="px-4">
+  <div class="border rounded-2xl p-4 flex justify-between items-center">
+    <div>
+      <p class="text-xs text-gray-500">Wallet Balance</p>
+      <p class="heading text-xl">₹0.00</p>
+    </div>
+    <button onclick="alert('Payment gateway later')" class="px-4 py-2 text-sm text-white rounded-xl insta-gradient">
+      + Add Funds
+    </button>
+  </div>
+</div>
+
+<!-- SERVICE TABS -->
+<div class="px-4 py-4 flex gap-3 overflow-x-auto">
+  <button class="tab px-4 py-2 rounded-full border text-sm active-tab" onclick="loadService('followers',this)">Followers</button>
+  <button class="tab px-4 py-2 rounded-full border text-sm" onclick="loadService('likes',this)">Post Likes</button>
+  <button class="tab px-4 py-2 rounded-full border text-sm" onclick="loadService('reels',this)">Reel Likes</button>
+  <button class="tab px-4 py-2 rounded-full border text-sm" onclick="loadService('views',this)">Views</button>
+</div>
+
+<!-- PLANS -->
+<div id="plans" class="px-4 grid grid-cols-2 gap-4 max-h-[420px] overflow-y-auto"></div>
+
+</section>
+
+<!-- ================= HISTORY ================= -->
+<section id="history" class="hidden px-4 py-4">
+  <h2 class="heading text-lg mb-4">Order History</h2>
+
+  <div class="space-y-3">
+
+    <div class="border rounded-xl p-4">
+      <div class="flex justify-between">
+        <span class="font-medium">Instagram Likes (Indian)</span>
+        <span class="text-green-600 text-sm">Completed</span>
+      </div>
+      <p class="text-xs text-gray-500">Order #FH91072670</p>
+
+      <button class="mt-2 text-xs px-3 py-1 border rounded-full"
+      onclick="openOrder({
+        id:'FH91072670',
+        service:'Instagram Likes (Indian)',
+        link:'https://instagram.com/p/DSNKeFvCGaB',
+        date:'2025-12-16 14:12:11',
+        qty:'100',
+        charge:'₹0.135',
+        start:'91',
+        remains:'0',
+        status:'Completed'
+      })">
+        View Details
+      </button>
+    </div>
+
+    <div class="border rounded-xl p-4">
+      <div class="flex justify-between">
+        <span class="font-medium">Instagram Post Views</span>
+        <span class="text-green-600 text-sm">Completed</span>
+      </div>
+      <p class="text-xs text-gray-500">Order #FH91072663</p>
+
+      <button class="mt-2 text-xs px-3 py-1 border rounded-full"
+      onclick="openOrder({
+        id:'FH91072663',
+        service:'Instagram Post Views',
+        link:'https://instagram.com/p/DSFeoKCCLAU',
+        date:'2025-12-16 14:10:44',
+        qty:'2000',
+        charge:'₹0.048',
+        start:'0',
+        remains:'0',
+        status:'Completed'
+      })">
+        View Details
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ACCOUNT ================= -->
+<section id="account" class="hidden px-4 py-4">
+  <h2 class="heading text-lg mb-4">My Account</h2>
+
+  <div class="border rounded-2xl p-4 mb-4">
+    <p class="font-medium">Demo User</p>
+    <p class="text-xs text-gray-500">demo@email.com</p>
+  </div>
+
+  <div class="space-y-3">
+    <button class="w-full border rounded-xl p-3 text-left">💰 Wallet</button>
+    <button class="w-full border rounded-xl p-3 text-left">📜 Orders</button>
+    <button class="w-full border rounded-xl p-3 text-left text-red-600">🚪 Logout</button>
+  </div>
+</section>
+
+<!-- BOTTOM NAV -->
+<footer class="fixed bottom-0 w-full bg-white border-t">
+  <div class="flex justify-around py-3 text-xs">
+    <button onclick="show('home')" class="flex flex-col items-center active-nav" id="nav-home">🏠<span>Home</span></button>
+    <button onclick="show('history')" class="flex flex-col items-center" id="nav-history">📜<span>History</span></button>
+    <button onclick="show('account')" class="flex flex-col items-center" id="nav-account">👤<span>Account</span></button>
+  </div>
+</footer>
+
+<!-- AUTH MODAL -->
+<div id="auth" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
+  <div class="bg-white rounded-2xl w-80 p-5">
+    <h2 id="authTitle" class="heading text-lg mb-3"></h2>
+    <input class="w-full border p-2 rounded mb-2" placeholder="Mobile / Email">
+    <input class="w-full border p-2 rounded mb-3" placeholder="Password">
+    <button class="w-full py-2 insta-gradient text-white rounded-xl">Continue</button>
+    <button onclick="auth.classList.add('hidden')" class="mt-3 text-sm w-full">Close</button>
+  </div>
+</div>
+
+<!-- ORDER DETAIL MODAL -->
+<div id="orderModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  <div class="bg-white w-[90%] max-w-md rounded-2xl p-5">
+    <div class="flex justify-between mb-3">
+      <h2 class="heading">Order Details</h2>
+      <button onclick="orderModal.classList.add('hidden')">✖</button>
+    </div>
+
+    <div class="text-sm space-y-2">
+      <p><b>Order ID:</b> <span id="od-id"></span></p>
+      <p><b>Service:</b> <span id="od-service"></span></p>
+      <p class="break-all"><b>Link:</b> <span id="od-link"></span></p>
+      <p><b>Date:</b> <span id="od-date"></span></p>
+
+      <div class="grid grid-cols-2 gap-2 mt-2">
+        <div class="border rounded-lg p-2"><b>Quantity</b><br><span id="od-qty"></span></div>
+        <div class="border rounded-lg p-2"><b>Charge</b><br><span id="od-charge"></span></div>
+        <div class="border rounded-lg p-2"><b>Start</b><br><span id="od-start"></span></div>
+        <div class="border rounded-lg p-2"><b>Remains</b><br><span id="od-remains"></span></div>
+      </div>
+
+      <p><b>Status:</b> <span id="od-status" class="text-green-600"></span></p>
+      <button class="w-full py-2 insta-gradient text-white rounded-xl mt-2">Refill</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function makePlans(name,price){
+let a=[]
+for(let i=1;i<=10;i++)a.push([`${i*5}K ${name}`,`₹${i*price}`])
+return a
+}
+
+const services={
+followers:makePlans("Followers",30),
+likes:makePlans("Likes",10),
+reels:makePlans("Reel Likes",12),
+views:makePlans("Views",8)
+}
+
+function loadService(t,el){
+document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active-tab"))
+el.classList.add("active-tab")
+plans.innerHTML=""
+services[t].forEach(p=>{
+plans.innerHTML+=`
+<div class="border rounded-2xl p-4 shadow-sm">
+<h3 class="heading text-sm">${p[0]}</h3>
+<p class="text-lg font-semibold mt-2">${p[1]}</p>
+<button class="mt-3 w-full py-2 insta-gradient text-white rounded-xl text-sm">Buy Now</button>
+</div>`
+})
+}
+
+function show(s){
+["home","history","account"].forEach(x=>{
+document.getElementById(x).classList.add("hidden")
+document.getElementById("nav-"+x).classList.remove("active-nav")
+})
+document.getElementById(s).classList.remove("hidden")
+document.getElementById("nav-"+s).classList.add("active-nav")
+}
+
+function openAuth(t){
+auth.classList.remove("hidden")
+authTitle.innerText=t==="signup"?"Create Account":"Login"
+}
+
+function openOrder(o){
+  document.getElementById("orderModal").classList.remove("hidden")
+
+  document.getElementById("od-id").innerText = o.id
+  document.getElementById("od-service").innerText = o.service
+  document.getElementById("od-link").innerText = o.link
+  document.getElementById("od-date").innerText = o.date
+  document.getElementById("od-qty").innerText = o.qty
+  document.getElementById("od-charge").innerText = o.charge
+  document.getElementById("od-start").innerText = o.start
+  document.getElementById("od-remains").innerText = o.remains
+  document.getElementById("od-status").innerText = o.status
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+loadService("followers",document.querySelector(".tab"))
+})
+</script>
+
+</body>
+</html>
