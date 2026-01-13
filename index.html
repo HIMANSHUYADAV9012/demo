@@ -1,257 +1,1135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<title>FollowersHub</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>FollowersHub - Instagram Growth Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Premium Instagram followers, likes, views, and engagement services. Fast delivery, real growth.">
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fafafa;
+    }
 
-<style>
-body{font-family:'Inter',sans-serif}
-.heading{font-family:'Poppins',sans-serif}
-.insta-gradient{
-background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4)
-}
-.active-tab{background:#000;color:#fff}
-.active-nav{color:#dd2a7b}
-.hidden{display:none}
-</style>
+    .heading {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .insta-gradient {
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    }
+
+    .active-tab {
+      background: #000;
+      color: #fff;
+    }
+
+    .active-nav {
+      color: #dd2a7b;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .slide-transition {
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .modal-overlay {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+    }
+
+    .plan-card {
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      border-color: #dd2a7b;
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #dd2a7b;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .order-status-completed {
+      color: #10b981;
+      background: #d1fae5;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+
+    .order-status-pending {
+      color: #f59e0b;
+      background: #fef3c7;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ef4444;
+      color: white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
 </head>
 
-<body class="bg-white text-gray-800 pb-28">
+<body class="bg-gray-50 text-gray-800 pb-20">
 
-<!-- NAVBAR -->
-<nav class="flex justify-between items-center px-4 py-3 border-b">
-  <div class="flex items-center gap-2">
-    <div class="w-9 h-9 rounded-full insta-gradient"></div>
-    <span class="heading text-lg">FollowersHub</span>
-  </div>
-  <div class="flex gap-3 text-sm">
-    <button onclick="openAuth('signup')">Sign Up</button>
-    <button onclick="openAuth('login')">Login</button>
-  </div>
-</nav>
-
-<!-- ================= HOME ================= -->
-<section id="home">
-
-<!-- IMAGE GRID -->
-<div class="px-4 py-4 grid grid-cols-3 gap-2">
-  <img class="rounded-xl" src="https://source.unsplash.com/400x400/?instagram">
-  <img class="rounded-xl" src="https://source.unsplash.com/401x401/?reels">
-  <img class="rounded-xl" src="https://source.unsplash.com/402x402/?influencer">
-  <img class="rounded-xl" src="https://source.unsplash.com/403x403/?social">
-  <img class="rounded-xl" src="https://source.unsplash.com/404x404/?creator">
-  <img class="rounded-xl" src="https://source.unsplash.com/405x405/?mobile">
-</div>
-
-<!-- WALLET -->
-<div class="px-4">
-  <div class="border rounded-2xl p-4 flex justify-between items-center">
-    <div>
-      <p class="text-xs text-gray-500">Wallet Balance</p>
-      <p class="heading text-xl">₹0.00</p>
-    </div>
-    <button onclick="alert('Payment gateway later')" class="px-4 py-2 text-sm text-white rounded-xl insta-gradient">
-      + Add Funds
-    </button>
-  </div>
-</div>
-
-<!-- SERVICE TABS -->
-<div class="px-4 py-4 flex gap-3 overflow-x-auto">
-  <button class="tab px-4 py-2 rounded-full border text-sm active-tab" onclick="loadService('followers',this)">Followers</button>
-  <button class="tab px-4 py-2 rounded-full border text-sm" onclick="loadService('likes',this)">Post Likes</button>
-  <button class="tab px-4 py-2 rounded-full border text-sm" onclick="loadService('reels',this)">Reel Likes</button>
-  <button class="tab px-4 py-2 rounded-full border text-sm" onclick="loadService('views',this)">Views</button>
-</div>
-
-<!-- PLANS -->
-<div id="plans" class="px-4 grid grid-cols-2 gap-4 max-h-[420px] overflow-y-auto"></div>
-
-</section>
-
-<!-- ================= HISTORY ================= -->
-<section id="history" class="hidden px-4 py-4">
-  <h2 class="heading text-lg mb-4">Order History</h2>
-
-  <div class="space-y-3">
-
-    <div class="border rounded-xl p-4">
-      <div class="flex justify-between">
-        <span class="font-medium">Instagram Likes (Indian)</span>
-        <span class="text-green-600 text-sm">Completed</span>
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center px-4 py-3 bg-white border-b shadow-sm sticky top-0 z-40">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-full insta-gradient flex items-center justify-center">
+        <span class="text-white text-sm font-bold">FH</span>
       </div>
-      <p class="text-xs text-gray-500">Order #FH91072670</p>
+      <span
+        class="heading text-lg bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">FollowersHub</span>
+    </div>
+    <div class="flex gap-3 text-sm">
+      <button onclick="openAuth('signup')"
+        class="px-4 py-1.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition">Sign Up</button>
+      <button onclick="openAuth('login')"
+        class="px-4 py-1.5 bg-black text-white rounded-lg hover:bg-gray-800 transition">Login</button>
+    </div>
+  </nav>
 
-      <button class="mt-2 text-xs px-3 py-1 border rounded-full"
-      onclick="openOrder({
-        id:'FH91072670',
-        service:'Instagram Likes (Indian)',
-        link:'https://instagram.com/p/DSNKeFvCGaB',
-        date:'2025-12-16 14:12:11',
-        qty:'100',
-        charge:'₹0.135',
-        start:'91',
-        remains:'0',
-        status:'Completed'
-      })">
-        View Details
+
+
+  <!-- ================= HOME ================= -->
+  <section id="home" class="fade-in">
+
+    <!-- HERO BANNER -->
+    <div class="px-4 pt-4">
+      <div id="banner" class="relative overflow-hidden rounded-2xl bg-white shadow-lg select-none">
+
+        <!-- SLIDES -->
+        <div id="track" class="flex slide-transition">
+
+          <!-- SLIDE 1 -->
+          <div class="min-w-full">
+            <picture>
+              <source media="(min-width:768px)" srcset="d1.png">
+              <img src="p1.png" class="w-full h-[190px] sm:h-[220px] md:h-[260px] object-cover" loading="lazy"
+                alt="Instagram Followers Growth">
+            </picture>
+
+          </div>
+
+          <!-- SLIDE 2 -->
+          <div class="min-w-full">
+            <picture>
+              <source media="(min-width:768px)"
+                srcset="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=1400&h=350&fit=crop">
+              <img src="p2.png" class="w-full h-[190px] sm:h-[220px] md:h-[260px] object-cover" loading="lazy"
+                alt="Instagram Likes">
+            </picture>
+
+          </div>
+
+          <!-- SLIDE 3 -->
+          <div class="min-w-full">
+            <picture>
+              <source media="(min-width:768px)"
+                srcset="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=1400&h=350&fit=crop">
+              <img src="p3.png" class="w-full h-[190px] sm:h-[220px] md:h-[260px] object-cover" loading="lazy"
+                alt="Instagram Reels Views">
+            </picture>
+
+          </div>
+
+        </div>
+
+        <!-- PROGRESS INDICATOR -->
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
+            <div class="h-full bg-white rounded-full bar"></div>
+          </div>
+          <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
+            <div class="h-full bg-white rounded-full bar"></div>
+          </div>
+          <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
+            <div class="h-full bg-white rounded-full bar"></div>
+          </div>
+        </div>
+
+        <!-- NAVIGATION ARROWS -->
+        <button onclick="prevSlide()"
+          class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition hidden sm:flex">
+          <i class="fas fa-chevron-left text-sm"></i>
+        </button>
+        <button onclick="nextSlide()"
+          class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-content hover:bg-black/70 transition hidden sm:flex">
+          <i class="fas fa-chevron-right text-sm"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- WALLET -->
+    <div class="px-4 mt-4">
+      <div class="border rounded-2xl p-4 flex justify-between items-center bg-white shadow-sm">
+        <div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-wallet text-gray-500"></i>
+            <p class="text-xs text-gray-500">Wallet Balance</p>
+          </div>
+          <p class="heading text-2xl mt-1">₹0.00</p>
+        </div>
+        <button onclick="openAddFunds()"
+          class="px-5 py-2.5 text-sm font-medium text-white rounded-xl insta-gradient hover:opacity-90 transition-all flex items-center gap-2">
+          <i class="fas fa-plus"></i> Add Funds
+        </button>
+      </div>
+    </div>
+
+    <!-- SERVICE TABS -->
+    <div class="px-4 py-4">
+      <h3 class="heading text-lg mb-3">Select Service</h3>
+      <div class="flex gap-2 overflow-x-auto pb-2">
+        <button
+          class="tab px-5 py-2.5 rounded-xl border text-sm font-medium active-tab whitespace-nowrap flex items-center gap-2"
+          onclick="loadService('followers',this)">
+          <i class="fas fa-users"></i> Followers
+        </button>
+        <button class="tab px-5 py-2.5 rounded-xl border text-sm font-medium whitespace-nowrap flex items-center gap-2"
+          onclick="loadService('likes',this)">
+          <i class="fas fa-heart"></i> Post Likes
+        </button>
+        <button class="tab px-5 py-2.5 rounded-xl border text-sm font-medium whitespace-nowrap flex items-center gap-2"
+          onclick="loadService('reels',this)">
+          <i class="fas fa-play-circle"></i> Reel Likes
+        </button>
+        <button class="tab px-5 py-2.5 rounded-xl border text-sm font-medium whitespace-nowrap flex items-center gap-2"
+          onclick="loadService('views',this)">
+          <i class="fas fa-eye"></i> Views
+        </button>
+      </div>
+    </div>
+
+    <!-- PLANS -->
+    <div id="plans" class="px-4 grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pb-20">
+      <!-- Plans will be loaded here -->
+    </div>
+
+  </section>
+
+  <!-- ================= HISTORY ================= -->
+  <section id="history" class="hidden px-4 py-4 fade-in">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="heading text-lg">Order History</h2>
+      <button onclick="refreshHistory()" class="text-gray-500 hover:text-gray-700">
+        <i class="fas fa-sync-alt"></i>
       </button>
     </div>
 
-    <div class="border rounded-xl p-4">
-      <div class="flex justify-between">
-        <span class="font-medium">Instagram Post Views</span>
-        <span class="text-green-600 text-sm">Completed</span>
-      </div>
-      <p class="text-xs text-gray-500">Order #FH91072663</p>
+    <div class="space-y-3">
+      <!-- Orders will be loaded dynamically -->
+    </div>
 
-      <button class="mt-2 text-xs px-3 py-1 border rounded-full"
-      onclick="openOrder({
-        id:'FH91072663',
-        service:'Instagram Post Views',
-        link:'https://instagram.com/p/DSFeoKCCLAU',
-        date:'2025-12-16 14:10:44',
-        qty:'2000',
-        charge:'₹0.048',
-        start:'0',
-        remains:'0',
-        status:'Completed'
-      })">
-        View Details
+    <div class="text-center mt-8 text-gray-500">
+      <i class="far fa-clock text-3xl mb-2"></i>
+      <p>No more orders</p>
+    </div>
+  </section>
+
+  <!-- ================= ACCOUNT ================= -->
+  <section id="account" class="hidden px-4 py-4 fade-in">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="w-16 h-16 rounded-full insta-gradient flex items-center justify-center">
+        <span class="text-white text-xl font-bold">DU</span>
+      </div>
+      <div>
+        <h2 class="heading text-lg">Demo User</h2>
+        <p class="text-gray-500 text-sm">demo@email.com</p>
+        <p class="text-xs text-gray-400">Member since Dec 2024</p>
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <button onclick="openWallet()"
+        class="w-full border rounded-xl p-3 text-left hover:bg-gray-50 transition flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+            <i class="fas fa-wallet text-blue-600"></i>
+          </div>
+          <div>
+            <p class="font-medium">Wallet</p>
+            <p class="text-xs text-gray-500">Balance: ₹0.00</p>
+          </div>
+        </div>
+        <i class="fas fa-chevron-right text-gray-400"></i>
+      </button>
+
+      <button onclick="show('history')"
+        class="w-full border rounded-xl p-3 text-left hover:bg-gray-50 transition flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
+            <i class="fas fa-receipt text-purple-600"></i>
+          </div>
+          <div>
+            <p class="font-medium">Orders</p>
+            <p class="text-xs text-gray-500">View order history</p>
+          </div>
+        </div>
+        <i class="fas fa-chevron-right text-gray-400"></i>
+      </button>
+
+      <button onclick="logout()"
+        class="w-full border rounded-xl p-3 text-left hover:bg-red-50 transition flex items-center justify-between mt-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+            <i class="fas fa-sign-out-alt text-red-600"></i>
+          </div>
+          <div>
+            <p class="font-medium text-red-600">Logout</p>
+            <p class="text-xs text-red-500">Sign out from device</p>
+          </div>
+        </div>
+        <i class="fas fa-chevron-right text-red-400"></i>
       </button>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- ================= ACCOUNT ================= -->
-<section id="account" class="hidden px-4 py-4">
-  <h2 class="heading text-lg mb-4">My Account</h2>
-
-  <div class="border rounded-2xl p-4 mb-4">
-    <p class="font-medium">Demo User</p>
-    <p class="text-xs text-gray-500">demo@email.com</p>
-  </div>
-
-  <div class="space-y-3">
-    <button class="w-full border rounded-xl p-3 text-left">💰 Wallet</button>
-    <button class="w-full border rounded-xl p-3 text-left">📜 Orders</button>
-    <button class="w-full border rounded-xl p-3 text-left text-red-600">🚪 Logout</button>
-  </div>
-</section>
-
-<!-- BOTTOM NAV -->
-<footer class="fixed bottom-0 w-full bg-white border-t">
-  <div class="flex justify-around py-3 text-xs">
-    <button onclick="show('home')" class="flex flex-col items-center active-nav" id="nav-home">🏠<span>Home</span></button>
-    <button onclick="show('history')" class="flex flex-col items-center" id="nav-history">📜<span>History</span></button>
-    <button onclick="show('account')" class="flex flex-col items-center" id="nav-account">👤<span>Account</span></button>
-  </div>
-</footer>
-
-<!-- AUTH MODAL -->
-<div id="auth" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
-  <div class="bg-white rounded-2xl w-80 p-5">
-    <h2 id="authTitle" class="heading text-lg mb-3"></h2>
-    <input class="w-full border p-2 rounded mb-2" placeholder="Mobile / Email">
-    <input class="w-full border p-2 rounded mb-3" placeholder="Password">
-    <button class="w-full py-2 insta-gradient text-white rounded-xl">Continue</button>
-    <button onclick="auth.classList.add('hidden')" class="mt-3 text-sm w-full">Close</button>
-  </div>
-</div>
-
-<!-- ORDER DETAIL MODAL -->
-<div id="orderModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-  <div class="bg-white w-[90%] max-w-md rounded-2xl p-5">
-    <div class="flex justify-between mb-3">
-      <h2 class="heading">Order Details</h2>
-      <button onclick="orderModal.classList.add('hidden')">✖</button>
+  <!-- BOTTOM NAV -->
+  <footer class="fixed bottom-0 w-full bg-white border-t shadow-lg z-30">
+    <div class="flex justify-around py-3 text-xs">
+      <button onclick="show('home')" class="flex flex-col items-center gap-1 active-nav transition-all" id="nav-home">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center">
+          <i class="fas fa-home text-lg"></i>
+        </div>
+        <span class="font-medium">Home</span>
+      </button>
+      <button onclick="show('history')" class="flex flex-col items-center gap-1 transition-all" id="nav-history">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center">
+          <i class="fas fa-history text-lg"></i>
+        </div>
+        <span>History</span>
+      </button>
+      <button onclick="show('account')" class="flex flex-col items-center gap-1 transition-all" id="nav-account">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center">
+          <i class="fas fa-user text-lg"></i>
+        </div>
+        <span>Account</span>
+      </button>
     </div>
+  </footer>
 
-    <div class="text-sm space-y-2">
-      <p><b>Order ID:</b> <span id="od-id"></span></p>
-      <p><b>Service:</b> <span id="od-service"></span></p>
-      <p class="break-all"><b>Link:</b> <span id="od-link"></span></p>
-      <p><b>Date:</b> <span id="od-date"></span></p>
+  <!-- AUTH MODAL -->
+  <div id="auth" class="hidden fixed inset-0 modal-overlay flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl">
+      <div class="flex justify-between items-center mb-4">
+        <h2 id="authTitle" class="heading text-xl"></h2>
+        <button onclick="closeAuth()" class="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <input
+        class="w-full border border-gray-300 p-3 rounded-lg mb-3 focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+        placeholder="Mobile / Email">
+      <input type="password"
+        class="w-full border border-gray-300 p-3 rounded-lg mb-4 focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+        placeholder="Password">
+      <button
+        class="w-full py-3 insta-gradient text-white rounded-xl font-medium hover:opacity-90 transition">Continue</button>
+      <p class="text-center text-sm text-gray-500 mt-4">By continuing, you agree to our Terms & Privacy</p>
+    </div>
+  </div>
 
-      <div class="grid grid-cols-2 gap-2 mt-2">
-        <div class="border rounded-lg p-2"><b>Quantity</b><br><span id="od-qty"></span></div>
-        <div class="border rounded-lg p-2"><b>Charge</b><br><span id="od-charge"></span></div>
-        <div class="border rounded-lg p-2"><b>Start</b><br><span id="od-start"></span></div>
-        <div class="border rounded-lg p-2"><b>Remains</b><br><span id="od-remains"></span></div>
+  <!-- ORDER DETAIL MODAL -->
+  <div id="orderModal" class="hidden fixed inset-0 modal-overlay flex items-center justify-center z-50 p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-2xl">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="heading text-xl">Order Details</h2>
+        <button onclick="closeOrderModal()"
+          class="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
 
-      <p><b>Status:</b> <span id="od-status" class="text-green-600"></span></p>
-      <button class="w-full py-2 insta-gradient text-white rounded-xl mt-2">Refill</button>
+      <div class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <p class="text-xs text-gray-500">Order ID</p>
+            <p class="font-medium" id="od-id"></p>
+          </div>
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <p class="text-xs text-gray-500">Status</p>
+            <p id="od-status" class="font-medium"></p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-3 rounded-lg">
+          <p class="text-xs text-gray-500">Service</p>
+          <p class="font-medium" id="od-service"></p>
+        </div>
+
+        <div class="bg-gray-50 p-3 rounded-lg">
+          <p class="text-xs text-gray-500">Link</p>
+          <p class="font-medium break-all" id="od-link"></p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <p class="text-xs text-gray-500">Quantity</p>
+            <p class="font-medium" id="od-qty"></p>
+          </div>
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <p class="text-xs text-gray-500">Charge</p>
+            <p class="font-medium" id="od-charge"></p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <p class="text-xs text-gray-500">Date</p>
+            <p class="font-medium" id="od-date"></p>
+          </div>
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <p class="text-xs text-gray-500">Remaining</p>
+            <p class="font-medium" id="od-remains"></p>
+          </div>
+        </div>
+
+        <button class="w-full py-3 insta-gradient text-white rounded-xl font-medium hover:opacity-90 transition mt-4">
+          <i class="fas fa-redo mr-2"></i> Request Refill
+        </button>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-function makePlans(name,price){
-let a=[]
-for(let i=1;i<=10;i++)a.push([`${i*5}K ${name}`,`₹${i*price}`])
-return a
-}
+  <!-- BUY MODAL -->
+  <div id="buyModal" class="hidden fixed inset-0 modal-overlay flex items-center justify-center z-50 p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden">
+      <!-- HEADER -->
+      <div class="p-6 border-b">
+        <div class="flex justify-between items-center">
+          <h2 class="heading text-xl">Purchase Package</h2>
+          <button onclick="resetBuyModal()"
+            class="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mt-4 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border">
+          <p class="text-sm text-gray-600">Selected Package</p>
+          <p class="font-bold text-lg" id="pkgName"></p>
+          <p class="text-2xl font-bold text-purple-700" id="pkgPrice"></p>
+        </div>
+      </div>
 
-const services={
-followers:makePlans("Followers",30),
-likes:makePlans("Likes",10),
-reels:makePlans("Reel Likes",12),
-views:makePlans("Views",8)
-}
+      <!-- CONTENT - SCREENS WILL SWAP HERE -->
+      <div class="p-6">
+        <!-- SCREEN 1: INPUT SCREEN -->
+        <div id="screen1" class="space-y-4">
+          <div class="text-center mb-2">
+            <div class="w-12 h-12 rounded-full insta-gradient flex items-center justify-center mx-auto mb-3">
+              <i class="fas fa-user-plus text-white text-lg"></i>
+            </div>
+            <h3 class="font-bold text-lg" id="inputTitle">Enter Instagram Username</h3>
+            <p class="text-gray-500 text-sm mt-1" id="inputSubtitle">We'll verify your profile before proceeding</p>
+          </div>
 
-function loadService(t,el){
-document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active-tab"))
-el.classList.add("active-tab")
-plans.innerHTML=""
-services[t].forEach(p=>{
-plans.innerHTML+=`
-<div class="border rounded-2xl p-4 shadow-sm">
-<h3 class="heading text-sm">${p[0]}</h3>
-<p class="text-lg font-semibold mt-2">${p[1]}</p>
-<button class="mt-3 w-full py-2 insta-gradient text-white rounded-xl text-sm">Buy Now</button>
-</div>`
-})
-}
+          <div class="space-y-3">
+            <input id="userInput"
+              class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+              placeholder="Enter Instagram username">
 
-function show(s){
-["home","history","account"].forEach(x=>{
-document.getElementById(x).classList.add("hidden")
-document.getElementById("nav-"+x).classList.remove("active-nav")
-})
-document.getElementById(s).classList.remove("hidden")
-document.getElementById("nav-"+s).classList.add("active-nav")
-}
+            <div id="verifySection">
+              <button onclick="verifyProfile()" id="verifyBtn"
+                class="w-full py-3 rounded-lg text-white font-medium transition flex items-center justify-center gap-2"
+                style="background: linear-gradient(45deg, #f58529, #dd2a7b)">
+                <span>Verify Profile</span>
+                <i class="fas fa-check-circle"></i>
+              </button>
+            </div>
 
-function openAuth(t){
-auth.classList.remove("hidden")
-authTitle.innerText=t==="signup"?"Create Account":"Login"
-}
+            <div id="continueSection" class="hidden">
+              <button onclick="goToPaymentScreen()"
+                class="w-full py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition">
+                Continue to Payment
+              </button>
+            </div>
+          </div>
 
-function openOrder(o){
-  document.getElementById("orderModal").classList.remove("hidden")
+          <div class="text-center text-xs text-gray-400 mt-4">
+            <i class="fas fa-shield-alt mr-1"></i> Secure & Confidential
+          </div>
+        </div>
 
-  document.getElementById("od-id").innerText = o.id
-  document.getElementById("od-service").innerText = o.service
-  document.getElementById("od-link").innerText = o.link
-  document.getElementById("od-date").innerText = o.date
-  document.getElementById("od-qty").innerText = o.qty
-  document.getElementById("od-charge").innerText = o.charge
-  document.getElementById("od-start").innerText = o.start
-  document.getElementById("od-remains").innerText = o.remains
-  document.getElementById("od-status").innerText = o.status
-}
+        <!-- SCREEN 2: PROFILE VERIFICATION -->
+        <div id="screen2" class="hidden space-y-4">
+          <div class="text-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
+              <i class="fas fa-check-circle text-green-600 text-lg"></i>
+            </div>
+            <h3 class="font-bold text-lg">Profile Verified</h3>
+            <p class="text-gray-500 text-sm mt-1">We found your Instagram profile</p>
+          </div>
 
-document.addEventListener("DOMContentLoaded",()=>{
-loadService("followers",document.querySelector(".tab"))
-})
-</script>
+          <div class="border rounded-xl p-4 bg-gray-50">
+            <div class="flex items-center gap-3">
+              <img src="https://i.pravatar.cc/80" class="w-12 h-12 rounded-full border-2 border-white shadow">
+              <div>
+                <p class="font-bold" id="profileUsername">@username</p>
+                <p class="text-xs text-gray-500">
+                  <span id="profileFollowers">12.5K</span> followers ·
+                  <span id="profileFollowing">120</span> following
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 bg-white rounded-lg border">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-600">Package:</span>
+                <span class="font-medium" id="summaryPkg"></span>
+              </div>
+              <div class="flex justify-between text-sm mt-1">
+                <span class="text-gray-600">Price:</span>
+                <span class="font-medium" id="summaryPrice"></span>
+              </div>
+            </div>
+
+            <button onclick="changeUsername()"
+              class="w-full mt-4 text-sm text-blue-600 hover:text-blue-700 transition flex items-center justify-center gap-2">
+              <i class="fas fa-edit"></i> Change Username
+            </button>
+          </div>
+
+          <button onclick="goToPaymentScreen()"
+            class="w-full py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition">
+            Continue to Payment
+          </button>
+        </div>
+
+        <!-- SCREEN 3: PAYMENT -->
+        <div id="screen3" class="hidden space-y-4">
+          <div class="text-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3">
+              <i class="fas fa-credit-card text-blue-600 text-lg"></i>
+            </div>
+            <h3 class="font-bold text-lg">Select Payment Method</h3>
+            <p class="text-gray-500 text-sm mt-1">Complete your purchase securely</p>
+          </div>
+
+          <div class="border rounded-xl p-4 bg-gray-50 mb-4">
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-medium">Order Summary</span>
+              <button onclick="goToScreen(1)" class="text-sm text-blue-600 hover:text-blue-700">Edit</button>
+            </div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span class="text-gray-600">Service:</span>
+                <span id="paymentService"></span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">For:</span>
+                <span id="paymentUsername"></span>
+              </div>
+              <div class="flex justify-between border-t pt-2">
+                <span class="text-gray-600">Total:</span>
+                <span class="font-bold text-lg" id="paymentTotal"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <button onclick="processPayment('gpay')"
+              class="border rounded-xl p-3 hover:bg-gray-50 transition flex flex-col items-center justify-center">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" class="h-6 mb-2">
+              <span class="text-xs">Google Pay</span>
+            </button>
+
+            <button onclick="processPayment('phonepe')"
+              class="border rounded-xl p-3 hover:bg-gray-50 transition flex flex-col items-center justify-center">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/PhonePe_Logo.svg" class="h-6 mb-2">
+              <span class="text-xs">PhonePe</span>
+            </button>
+
+            <button onclick="processPayment('paytm')"
+              class="border rounded-xl p-3 hover:bg-gray-50 transition flex flex-col items-center justify-center">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png" class="h-6 mb-2">
+              <span class="text-xs">Paytm</span>
+            </button>
+
+            <button onclick="processPayment('wallet')"
+              class="border rounded-xl p-3 hover:bg-gray-50 transition flex flex-col items-center justify-center">
+              <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mb-2">
+                <i class="fas fa-wallet text-purple-600"></i>
+              </div>
+              <span class="text-xs">Wallet</span>
+            </button>
+          </div>
+
+          <div class="text-center text-xs text-gray-400 mt-4">
+            <i class="fas fa-lock mr-1"></i> 100% Secure Payment · No Refund Policy
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATIONS MODAL -->
+  <div id="notificationsModal" class="hidden fixed inset-0 modal-overlay flex items-start justify-end z-50 p-4">
+    <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl mt-16">
+      <div class="p-4 border-b flex justify-between items-center">
+        <h3 class="font-bold">Notifications</h3>
+        <button onclick="closeNotifications()" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="p-2 max-h-80 overflow-y-auto">
+        <!-- Notifications list -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD FUNDS MODAL -->
+  <div id="addFundsModal" class="hidden fixed inset-0 modal-overlay flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-2xl w-full max-w-md p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="heading text-xl">Add Funds to Wallet</h2>
+        <button onclick="closeAddFunds()" class="w-8 h-8 rounded-full hover:bg-gray-100">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="space-y-4">
+        <input type="number" class="w-full border p-3 rounded-lg" placeholder="Enter amount (₹)" min="100">
+        <button class="w-full py-3 insta-gradient text-white rounded-xl">Proceed to Pay</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========== GLOBAL STATE ==========
+    let currentService = "";
+    let currentPackage = {};
+    let currentScreen = 1;
+    let userProfile = null;
+
+    // ========== BANNER CAROUSEL ==========
+    const track = document.getElementById("track");
+    const bars = document.querySelectorAll(".bar");
+    const total = bars.length;
+    let index = 0;
+    let interval;
+    const DURATION = 5000;
+
+    function resetBars() {
+      bars.forEach(bar => {
+        bar.style.transition = "none";
+        bar.style.width = "0%";
+      });
+    }
+
+    function fillBar(i) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          bars[i].style.transition = `width ${DURATION}ms linear`;
+          bars[i].style.width = "100%";
+        });
+      });
+    }
+
+    function goToSlide(i) {
+      track.style.transform = `translateX(-${i * 100}%)`;
+      index = i;
+      resetBars();
+      fillBar(i);
+    }
+
+    function nextSlide() {
+      goToSlide((index + 1) % total);
+    }
+
+    function prevSlide() {
+      goToSlide((index - 1 + total) % total);
+    }
+
+    function startAuto() {
+      clearInterval(interval);
+      resetBars();
+      fillBar(index);
+
+      interval = setInterval(() => {
+        nextSlide();
+      }, DURATION);
+    }
+
+    // Initialize banner
+    const banner = document.getElementById("banner");
+    banner.addEventListener("mouseenter", () => clearInterval(interval));
+    banner.addEventListener("mouseleave", startAuto);
+    window.addEventListener("load", startAuto);
+
+    // ========== SERVICE PLANS ==========
+    const services = {
+      followers: Array.from({
+        length: 10
+      }, (_, i) => [`${(i+1)*5}K Followers`, `₹${(i+1)*30}`]),
+      likes: Array.from({
+        length: 10
+      }, (_, i) => [`${(i+1)*5}K Likes`, `₹${(i+1)*10}`]),
+      reels: Array.from({
+        length: 10
+      }, (_, i) => [`${(i+1)*5}K Reel Likes`, `₹${(i+1)*12}`]),
+      views: Array.from({
+        length: 10
+      }, (_, i) => [`${(i+1)*5}K Views`, `₹${(i+1)*8}`])
+    };
+
+    function loadService(type, element) {
+      // Update tabs
+      document.querySelectorAll(".tab").forEach(btn => {
+        btn.classList.remove("active-tab");
+        btn.classList.remove("bg-black", "text-white");
+      });
+      element.classList.add("active-tab");
+      element.classList.add("bg-black", "text-white");
+
+      // Generate plans
+      const plansContainer = document.getElementById("plans");
+      plansContainer.innerHTML = "";
+
+      services[type].forEach((plan, idx) => {
+        const [name, price] = plan;
+        const card = document.createElement("div");
+        card.className = "plan-card bg-white rounded-2xl p-4";
+        card.innerHTML = `
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="heading text-sm">${name}</h3>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-xs text-gray-500">Delivery: </span>
+                <span class="text-xs font-medium text-green-600">Instant</span>
+              </div>
+              <p class="text-xl font-bold mt-2">${price}</p>
+              <p class="text-xs text-gray-500 mt-1">₹${(parseInt(price.replace('₹',''))/parseInt(name.split('K')[0])/1000).toFixed(3)} per unit</p>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center">
+              <i class="fas fa-bolt text-pink-600"></i>
+            </div>
+          </div>
+          <button onclick="openBuyModal('${name}', '${price}', '${type}')" 
+                  class="mt-4 w-full py-2.5 insta-gradient text-white rounded-xl font-medium text-sm hover:opacity-90 transition">
+            <i class="fas fa-shopping-cart mr-2"></i> Buy Now
+          </button>
+        `;
+        plansContainer.appendChild(card);
+      });
+    }
+
+    // ========== NAVIGATION ==========
+    function show(section) {
+      // Hide all sections
+      ["home", "history", "account"].forEach(id => {
+        document.getElementById(id).classList.add("hidden");
+        document.getElementById(`nav-${id}`).classList.remove("active-nav");
+        document.getElementById(`nav-${id}`).classList.remove("text-pink-600");
+      });
+
+      // Show selected section
+      document.getElementById(section).classList.remove("hidden");
+      document.getElementById(`nav-${section}`).classList.add("active-nav");
+      document.getElementById(`nav-${section}`).classList.add("text-pink-600");
+
+      // Add fade-in animation
+      document.getElementById(section).classList.add("fade-in");
+
+      // Load history if needed
+      if (section === 'history') loadOrderHistory();
+    }
+
+    // ========== BUY MODAL FUNCTIONS ==========
+    function openBuyModal(pkgName, pkgPrice, serviceType) {
+      // Reset modal state
+      resetBuyModal();
+
+      // Set package info
+      currentPackage = {
+        name: pkgName,
+        price: pkgPrice,
+        type: serviceType
+      };
+      currentService = serviceType;
+
+      document.getElementById("pkgName").textContent = pkgName;
+      document.getElementById("pkgPrice").textContent = pkgPrice;
+
+      // Configure based on service type
+      const userInput = document.getElementById("userInput");
+      const inputTitle = document.getElementById("inputTitle");
+      const inputSubtitle = document.getElementById("inputSubtitle");
+
+      if (serviceType === 'likes') {
+        userInput.placeholder = "Enter Instagram Post URL (e.g., https://instagram.com/p/...)";
+        inputTitle.textContent = "Enter Post URL";
+        inputSubtitle.textContent = "We'll verify the post before proceeding";
+        document.getElementById("continueSection").classList.remove("hidden");
+        document.getElementById("verifySection").classList.add("hidden");
+      } else {
+        userInput.placeholder = "Enter Instagram Username (without @)";
+        inputTitle.textContent = "Enter Instagram Username";
+        inputSubtitle.textContent = "We'll verify your profile before proceeding";
+        document.getElementById("verifySection").classList.remove("hidden");
+        document.getElementById("continueSection").classList.add("hidden");
+      }
+
+      // Show modal
+      document.getElementById("buyModal").classList.remove("hidden");
+      currentScreen = 1;
+    }
+
+    function resetBuyModal() {
+      // Reset all screens
+      document.getElementById("screen1").classList.remove("hidden");
+      document.getElementById("screen2").classList.add("hidden");
+      document.getElementById("screen3").classList.add("hidden");
+
+      // Clear input
+      document.getElementById("userInput").value = "";
+
+      // Reset buttons
+      document.getElementById("verifySection").classList.remove("hidden");
+      document.getElementById("continueSection").classList.add("hidden");
+
+      currentScreen = 1;
+      userProfile = null;
+    }
+
+    function verifyProfile() {
+      const input = document.getElementById("userInput").value.trim();
+      if (!input) {
+        alert("Please enter a username first");
+        return;
+      }
+
+      // Simulate verification
+      const verifyBtn = document.getElementById("verifyBtn");
+      const originalText = verifyBtn.innerHTML;
+      verifyBtn.innerHTML = '<div class="loading-spinner"></div> Verifying...';
+      verifyBtn.disabled = true;
+
+      setTimeout(() => {
+        // Success verification
+        userProfile = {
+          username: input,
+          followers: Math.floor(Math.random() * 50000) + 1000,
+          following: Math.floor(Math.random() * 1000) + 100
+        };
+
+        // Update profile display
+        document.getElementById("profileUsername").textContent = "@" + userProfile.username;
+        document.getElementById("profileFollowers").textContent =
+          userProfile.followers > 1000 ? (userProfile.followers / 1000).toFixed(1) + "K" : userProfile.followers;
+        document.getElementById("profileFollowing").textContent = userProfile.following;
+        document.getElementById("summaryPkg").textContent = currentPackage.name;
+        document.getElementById("summaryPrice").textContent = currentPackage.price;
+
+        // Switch to screen 2
+        goToScreen(2);
+
+        verifyBtn.innerHTML = originalText;
+        verifyBtn.disabled = false;
+      }, 1500);
+    }
+
+    function goToScreen(screenNumber) {
+      // Hide all screens
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById(`screen${i}`).classList.add("hidden");
+      }
+
+      // Show selected screen
+      document.getElementById(`screen${screenNumber}`).classList.remove("hidden");
+      currentScreen = screenNumber;
+
+      // Update payment screen if going there
+      if (screenNumber === 3) {
+        document.getElementById("paymentService").textContent = currentPackage.name;
+        document.getElementById("paymentUsername").textContent = userProfile ? "@" + userProfile.username :
+          (currentService === 'likes' ? "Post: " + document.getElementById("userInput").value : "Profile");
+        document.getElementById("paymentTotal").textContent = currentPackage.price;
+      }
+    }
+
+    function changeUsername() {
+      goToScreen(1);
+    }
+
+    function goToPaymentScreen() {
+      if (currentService === 'likes') {
+        const input = document.getElementById("userInput").value.trim();
+        if (!input || !input.includes('instagram.com')) {
+          alert("Please enter a valid Instagram post URL");
+          return;
+        }
+        userProfile = {
+          url: input
+        };
+      } else if (!userProfile) {
+        alert("Please verify your profile first");
+        return;
+      }
+      goToScreen(3);
+    }
+
+    function processPayment(method) {
+      const paymentBtn = event.target.closest('button');
+      const originalContent = paymentBtn.innerHTML;
+      paymentBtn.innerHTML = '<div class="loading-spinner"></div> Processing...';
+      paymentBtn.disabled = true;
+
+      setTimeout(() => {
+        alert(`Payment via ${method.toUpperCase()} initiated! Redirecting to payment gateway...`);
+        window.open('https://example.com/payment', '_blank');
+        resetBuyModal();
+        document.getElementById("buyModal").classList.add("hidden");
+
+        // Reset button
+        setTimeout(() => {
+          paymentBtn.innerHTML = originalContent;
+          paymentBtn.disabled = false;
+        }, 1000);
+      }, 2000);
+    }
+
+    function closeBuyModal() {
+      document.getElementById("buyModal").classList.add("hidden");
+      resetBuyModal();
+    }
+
+    // ========== ORDER HISTORY ==========
+    function loadOrderHistory() {
+      const historyContainer = document.querySelector("#history .space-y-3");
+      const orders = [{
+          id: "FH91072670",
+          service: "Instagram Likes (Indian)",
+          link: "https://instagram.com/p/DSNKeFvCGaB",
+          date: "2025-12-16 14:12:11",
+          qty: "100",
+          charge: "₹0.135",
+          start: "91",
+          remains: "0",
+          status: "Completed"
+        },
+        {
+          id: "FH91072663",
+          service: "Instagram Post Views",
+          link: "https://instagram.com/p/DSFeoKCCLAU",
+          date: "2025-12-16 14:10:44",
+          qty: "2000",
+          charge: "₹0.048",
+          start: "0",
+          remains: "0",
+          status: "Completed"
+        },
+        {
+          id: "FH91072655",
+          service: "Instagram Followers",
+          link: "https://instagram.com/demo_user",
+          date: "2025-12-16 13:45:22",
+          qty: "500",
+          charge: "₹15.00",
+          start: "500",
+          remains: "0",
+          status: "Completed"
+        }
+      ];
+
+      historyContainer.innerHTML = orders.map(order => `
+        <div class="border rounded-xl p-4 bg-white shadow-sm">
+          <div class="flex justify-between items-start mb-2">
+            <div>
+              <span class="font-medium">${order.service}</span>
+              <p class="text-xs text-gray-500">Order #${order.id}</p>
+            </div>
+            <span class="${order.status === 'Completed' ? 'order-status-completed' : 'order-status-pending'}">
+              ${order.status}
+            </span>
+          </div>
+          <div class="flex justify-between text-sm mt-3">
+            <div>
+              <p class="text-gray-500">Quantity</p>
+              <p class="font-medium">${order.qty}</p>
+            </div>
+            <div>
+              <p class="text-gray-500">Amount</p>
+              <p class="font-medium">${order.charge}</p>
+            </div>
+            <div>
+              <p class="text-gray-500">Date</p>
+              <p class="font-medium">${order.date.split(' ')[0]}</p>
+            </div>
+          </div>
+          <button onclick="openOrderDetails('${order.id}')" 
+                  class="mt-3 w-full py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-50 transition">
+            <i class="fas fa-eye mr-2"></i> View Details
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function openOrderDetails(orderId) {
+      // Find order by ID (in real app, fetch from API)
+      const orders = [{
+          id: "FH91072670",
+          service: "Instagram Likes (Indian)",
+          link: "https://instagram.com/p/DSNKeFvCGaB",
+          date: "2025-12-16 14:12:11",
+          qty: "100",
+          charge: "₹0.135",
+          start: "91",
+          remains: "0",
+          status: "Completed"
+        },
+        {
+          id: "FH91072663",
+          service: "Instagram Post Views",
+          link: "https://instagram.com/p/DSFeoKCCLAU",
+          date: "2025-12-16 14:10:44",
+          qty: "2000",
+          charge: "₹0.048",
+          start: "0",
+          remains: "0",
+          status: "Completed"
+        }
+      ];
+
+      const order = orders.find(o => o.id === orderId);
+      if (order) {
+        document.getElementById("od-id").textContent = order.id;
+        document.getElementById("od-service").textContent = order.service;
+        document.getElementById("od-link").textContent = order.link;
+        document.getElementById("od-date").textContent = order.date;
+        document.getElementById("od-qty").textContent = order.qty;
+        document.getElementById("od-charge").textContent = order.charge;
+        document.getElementById("od-start").textContent = order.start;
+        document.getElementById("od-remains").textContent = order.remains;
+
+        const statusElem = document.getElementById("od-status");
+        statusElem.textContent = order.status;
+        statusElem.className = order.status === 'Completed' ? 'text-green-600 font-medium' :
+          'text-yellow-600 font-medium';
+
+        document.getElementById("orderModal").classList.remove("hidden");
+      }
+    }
+
+    function closeOrderModal() {
+      document.getElementById("orderModal").classList.add("hidden");
+    }
+
+    // ========== AUTH FUNCTIONS ==========
+    function openAuth(type) {
+      document.getElementById("auth").classList.remove("hidden");
+      document.getElementById("authTitle").textContent = type === "signup" ? "Create Account" : "Welcome Back";
+    }
+
+    function closeAuth() {
+      document.getElementById("auth").classList.add("hidden");
+    }
+
+    // ========== OTHER FUNCTIONS ==========
+    function openAddFunds() {
+      document.getElementById("addFundsModal").classList.remove("hidden");
+    }
+
+    function closeAddFunds() {
+      document.getElementById("addFundsModal").classList.add("hidden");
+    }
+
+
+    function closeNotifications() {
+      document.getElementById("notificationsModal").classList.add("hidden");
+    }
+
+    function logout() {
+      if (confirm("Are you sure you want to logout?")) {
+        alert("Logged out successfully!");
+        show('home');
+      }
+    }
+
+    function refreshHistory() {
+      const refreshBtn = event.target;
+      refreshBtn.classList.add("animate-spin");
+      setTimeout(() => {
+        refreshBtn.classList.remove("animate-spin");
+        loadOrderHistory();
+      }, 1000);
+    }
+
+    // ========== INITIALIZATION ==========
+    document.addEventListener("DOMContentLoaded", () => {
+      // Load initial service
+      loadService('followers', document.querySelector('.tab'));
+
+      // Initialize order history
+      loadOrderHistory();
+
+      // Add click outside to close modals
+      document.addEventListener('click', (e) => {
+        if (e.target.id === 'auth') closeAuth();
+        if (e.target.id === 'orderModal') closeOrderModal();
+        if (e.target.id === 'buyModal') closeBuyModal();
+        if (e.target.id === 'notificationsModal') closeNotifications();
+        if (e.target.id === 'addFundsModal') closeAddFunds();
+      });
+    });
+  </script>
 
 </body>
+
 </html>
