@@ -152,71 +152,90 @@
   <section id="home" class="fade-in">
 
     <!-- HERO BANNER -->
-    <div class="px-4 pt-4">
-      <div id="banner" class="relative overflow-hidden rounded-2xl bg-white shadow-lg select-none">
+   <div class="px-4 pt-4">
+  <div id="banner"
+       class="relative rounded-2xl bg-white shadow-lg select-none overflow-hidden">
 
-        <!-- SLIDES -->
-        <div id="track" class="flex slide-transition">
+    <!-- SLIDES -->
+    <div id="track"
+         class="flex transition-transform duration-[900ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
 
-          <!-- SLIDE 1 -->
-          <div class="min-w-full">
-            <picture>
-              <source media="(min-width:768px)" srcset="d1.png">
-              <img src="p1.png" class="w-full h-[190px] sm:h-[220px] md:h-[260px] object-cover" loading="lazy"
-                alt="Instagram Followers Growth">
-            </picture>
+      <!-- SLIDE 1 -->
+      <div class="min-w-full">
+        <picture>
+          <!-- DESKTOP -->
+          <source media="(min-width:768px)" srcset="d1.png">
 
-          </div>
+          <!-- MOBILE -->
+          <img src="p1.png"
+               class="w-full 
+                      h-auto md:h-[260px]
+                      object-contain md:object-cover
+                      bg-white"
+               loading="lazy"
+               alt="Instagram Followers Growth">
+        </picture>
+      </div>
 
-          <!-- SLIDE 2 -->
-          <div class="min-w-full">
-            <picture>
-              <source media="(min-width:768px)"
-                srcset="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=1400&h=350&fit=crop">
-              <img src="p2.png" class="w-full h-[190px] sm:h-[220px] md:h-[260px] object-cover" loading="lazy"
-                alt="Instagram Likes">
-            </picture>
+      <!-- SLIDE 2 -->
+      <div class="min-w-full">
+        <picture>
+          <source media="(min-width:768px)"
+            srcset="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=1400&h=350&fit=crop">
 
-          </div>
+          <img src="p2.png"
+               class="w-full 
+                      h-auto md:h-[260px]
+                      object-contain md:object-cover
+                      bg-white"
+               loading="lazy"
+               alt="Instagram Likes">
+        </picture>
+      </div>
 
-          <!-- SLIDE 3 -->
-          <div class="min-w-full">
-            <picture>
-              <source media="(min-width:768px)"
-                srcset="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=1400&h=350&fit=crop">
-              <img src="p3.png" class="w-full h-[190px] sm:h-[220px] md:h-[260px] object-cover" loading="lazy"
-                alt="Instagram Reels Views">
-            </picture>
+      <!-- SLIDE 3 -->
+      <div class="min-w-full">
+        <picture>
+          <source media="(min-width:768px)"
+            srcset="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=1400&h=350&fit=crop">
 
-          </div>
-
-        </div>
-
-        <!-- PROGRESS INDICATOR -->
-        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-          <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
-            <div class="h-full bg-white rounded-full bar"></div>
-          </div>
-          <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
-            <div class="h-full bg-white rounded-full bar"></div>
-          </div>
-          <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
-            <div class="h-full bg-white rounded-full bar"></div>
-          </div>
-        </div>
-
-        <!-- NAVIGATION ARROWS -->
-        <button onclick="prevSlide()"
-          class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition hidden sm:flex">
-          <i class="fas fa-chevron-left text-sm"></i>
-        </button>
-        <button onclick="nextSlide()"
-          class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-content hover:bg-black/70 transition hidden sm:flex">
-          <i class="fas fa-chevron-right text-sm"></i>
-        </button>
-
+          <img src="p3.png"
+               class="w-full 
+                      h-auto md:h-[260px]
+                      object-contain md:object-cover
+                      bg-white"
+               loading="lazy"
+               alt="Instagram Reels Views">
+        </picture>
       </div>
     </div>
+
+    <!-- PROGRESS -->
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+      <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
+        <div class="h-full bg-white rounded-full bar"></div>
+      </div>
+      <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
+        <div class="h-full bg-white rounded-full bar"></div>
+      </div>
+      <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
+        <div class="h-full bg-white rounded-full bar"></div>
+      </div>
+    </div>
+
+    <!-- ARROWS -->
+    <button onclick="prevSlide()"
+      class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition hidden sm:flex">
+      <i class="fas fa-chevron-left text-sm"></i>
+    </button>
+
+    <button onclick="nextSlide()"
+      class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition hidden sm:flex">
+      <i class="fas fa-chevron-right text-sm"></i>
+    </button>
+
+  </div>
+</div>
 
     <!-- WALLET -->
     <div class="px-4 mt-4">
@@ -259,10 +278,11 @@
       </div>
     </div>
 
-    <!-- PLANS -->
-    <div id="plans" class="px-4 grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pb-20">
-      <!-- Plans will be loaded here -->
-    </div>
+  <!-- PLANS -->
+<div id="plans"
+     class="px-4 grid grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pb-20">
+</div>
+
 
   </section>
 
@@ -465,7 +485,7 @@
         <div class="mt-4 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border">
           <p class="text-sm text-gray-600">Selected Package</p>
           <p class="font-bold text-lg" id="pkgName"></p>
-          <p class="text-2xl font-bold text-purple-700" id="pkgPrice"></p>
+          <p class="text-2xl font-bold text-green-700" id="pkgPrice"></p>
         </div>
       </div>
 
@@ -1128,7 +1148,7 @@
         if (e.target.id === 'addFundsModal') closeAddFunds();
       });
     });
-  </script>
+  </script> 
 
 </body>
 
