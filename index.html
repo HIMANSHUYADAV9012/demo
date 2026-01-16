@@ -465,7 +465,7 @@
       <div class="p-6 border-b">
         <div class="flex justify-between items-center">
           <h2 class="heading text-xl">Purchase Package</h2>
-          <button onclick="resetBuyModal()"
+          <button onclick="closeBuyModal()"
             class="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center">
             <i class="fas fa-times"></i>
           </button>
@@ -481,38 +481,64 @@
       <div class="p-6">
         <!-- SCREEN 1: INPUT SCREEN -->
         <div id="screen1" class="space-y-4">
-          <div class="text-center mb-2">
-            <div class="w-12 h-12 rounded-full insta-gradient flex items-center justify-center mx-auto mb-3">
-              <i class="fas fa-user-plus text-white text-lg"></i>
+          <!-- मुख्य फॉर्म (default रहेगा) -->
+          <div id="screen1-form">
+            <div class="text-center mb-2">
+              <div class="w-12 h-12 rounded-full insta-gradient flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-user-plus text-white text-lg"></i>
+              </div>
+              <h3 class="font-bold text-lg" id="inputTitle">Enter Instagram Username</h3>
+              <p class="text-gray-500 text-sm mt-1" id="inputSubtitle">We'll verify your profile before proceeding</p>
             </div>
-            <h3 class="font-bold text-lg" id="inputTitle">Enter Instagram Username</h3>
-            <p class="text-gray-500 text-sm mt-1" id="inputSubtitle">We'll verify your profile before proceeding</p>
+
+            <div class="space-y-3">
+              <input id="userInput"
+                class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                placeholder="Enter Instagram username">
+
+              <div id="verifySection">
+                <button onclick="verifyProfile()" id="verifyBtn"
+                  class="w-full py-3 rounded-lg text-white font-medium transition flex items-center justify-center gap-2"
+                  style="background: linear-gradient(45deg, #f58529, #dd2a7b)">
+                  <span>Verify Profile</span>
+                  <i class="fas fa-check-circle"></i>
+                </button>
+              </div>
+
+              <div id="continueSection" class="hidden">
+                <button onclick="goToPaymentScreen()"
+                  class="w-full py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition">
+                  Continue to Payment
+                </button>
+              </div>
+            </div>
+
+            <div class="text-center text-xs text-gray-400 mt-4">
+              <i class="fas fa-shield-alt mr-1"></i> Secure & Confidential
+            </div>
           </div>
 
-          <div class="space-y-3">
-            <input id="userInput"
-              class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-              placeholder="Enter Instagram username">
+          <!-- Error message (initially hidden) -->
+          <div id="screen1-error" class="hidden">
+            <div class="text-center space-y-4">
+              <div class="w-16 h-16 mx-auto rounded-full bg-red-100 flex items-center justify-center">
+                <i class="fas fa-user-slash text-red-600 text-2xl"></i>
+              </div>
 
-            <div id="verifySection">
-              <button onclick="verifyProfile()" id="verifyBtn"
-                class="w-full py-3 rounded-lg text-white font-medium transition flex items-center justify-center gap-2"
-                style="background: linear-gradient(45deg, #f58529, #dd2a7b)">
-                <span>Verify Profile</span>
-                <i class="fas fa-check-circle"></i>
+              <h3 class="text-lg font-bold text-red-600">
+                User Not Found
+              </h3>
+
+              <p class="text-sm text-gray-500">
+                Instagram user <b id="error-username"></b> does not exist
+                PLEASE ENTER VALID INSTA USERNAME
+              </p>
+
+              <button onclick="resetToScreen1Form()"
+                class="mt-4 px-6 py-2 bg-black text-white rounded-lg">
+                Try Another Username
               </button>
             </div>
-
-            <div id="continueSection" class="hidden">
-              <button onclick="goToPaymentScreen()"
-                class="w-full py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition">
-                Continue to Payment
-              </button>
-            </div>
-          </div>
-
-          <div class="text-center text-xs text-gray-400 mt-4">
-            <i class="fas fa-shield-alt mr-1"></i> Secure & Confidential
           </div>
         </div>
 
@@ -528,7 +554,7 @@
 
           <div class="border rounded-xl p-4 bg-gray-50">
             <div class="flex items-center gap-3">
-              <img src="https://i.pravatar.cc/80" class="w-12 h-12 rounded-full border-2 border-white shadow">
+              <img id="profilePic" src="https://i.pravatar.cc/80" class="w-12 h-12 rounded-full border-2 border-white shadow">
               <div>
                 <p class="font-bold" id="profileUsername">@username</p>
                 <p class="text-xs text-gray-500">
@@ -574,7 +600,7 @@
           <div class="border rounded-xl p-4 bg-gray-50 mb-4">
             <div class="flex justify-between items-center mb-2">
               <span class="font-medium">Order Summary</span>
-              <button onclick="goToScreen(1)" class="text-sm text-blue-600 hover:text-blue-700">Edit</button>
+              <button hidden onclick="goToScreen(1)" class="text-sm text-blue-600 hover:text-blue-700">Edit</button>
             </div>
             <div class="space-y-2 text-sm">
               <div class="flex justify-between">
@@ -763,19 +789,18 @@
                 <span class="text-xs font-medium text-green-600">3-4 HOUR </span>
               </div>
               <p class="text-[11px] text-black-500 mt-0.5">
-  Real • Active • Permanent
-</p>
+                Real • Active • Permanent
+              </p>
               <p class="text-xl font-bold mt-2">${price}</p>
               <p class="text-xs text-gray-500 mt-1">₹${(parseInt(price.replace('₹',''))/parseInt(name.split('K')[0])/1000).toFixed(3)} per unit</p>
             </div>
             <div
-  class="w-8 h-8 min-w-[32px] min-h-[32px] 
-         rounded-full bg-pink-100 
-         flex items-center justify-center 
-         flex-shrink-0">
-  <i class="fas fa-bolt text-pink-600 text-sm"></i>
-</div>
-
+              class="w-8 h-8 min-w-[32px] min-h-[32px] 
+                     rounded-full bg-pink-100 
+                     flex items-center justify-center 
+                     flex-shrink-0">
+              <i class="fas fa-bolt text-pink-600 text-sm"></i>
+            </div>
           </div>
           <button onclick="openBuyModal('${name}', '${price}', '${type}')" 
                   class="mt-4 w-full py-2.5 insta-gradient text-white rounded-xl font-medium text-sm hover:opacity-90 transition">
@@ -852,6 +877,10 @@
       document.getElementById("screen1").classList.remove("hidden");
       document.getElementById("screen2").classList.add("hidden");
       document.getElementById("screen3").classList.add("hidden");
+      
+      // Show form, hide error
+      document.getElementById("screen1-form").classList.remove("hidden");
+      document.getElementById("screen1-error").classList.add("hidden");
 
       // Clear input
       document.getElementById("userInput").value = "";
@@ -864,41 +893,101 @@
       userProfile = null;
     }
 
-    function verifyProfile() {
-      const input = document.getElementById("userInput").value.trim();
-      if (!input) {
-        alert("Please enter a username first");
+    // नया फंक्शन: स्क्रीन1 के फॉर्म पर वापस जाने के लिए
+    function resetToScreen1Form() {
+      document.getElementById("screen1-form").classList.remove("hidden");
+      document.getElementById("screen1-error").classList.add("hidden");
+      document.getElementById("userInput").value = "";
+      document.getElementById("userInput").focus();
+    }
+
+    // नया फंक्शन: मोडल बंद करने के लिए
+    function closeBuyModal() {
+      document.getElementById("buyModal").classList.add("hidden");
+      resetBuyModal();
+    }
+
+    // verifyProfile फंक्शन अपडेट करें
+    async function verifyProfile() {
+      const username = document.getElementById("userInput").value.trim();
+
+      if (!username) {
+        alert("Please enter username");
         return;
       }
 
-      // Simulate verification
       const verifyBtn = document.getElementById("verifyBtn");
-      const originalText = verifyBtn.innerHTML;
+      const originalHTML = verifyBtn.innerHTML;
+
       verifyBtn.innerHTML = '<div class="loading-spinner"></div> Verifying...';
       verifyBtn.disabled = true;
 
-      setTimeout(() => {
-        // Success verification
+      try {
+        const res = await fetch(
+          `https://without-proxy.vercel.app/scrape/${username}`
+        );
+
+        // ❌ USER NOT FOUND
+        if (!res.ok) {
+          throw new Error("USER_NOT_FOUND");
+        }
+
+        const data = await res.json();
+
+        // BASIC VALIDATION
+        if (!data.username) {
+          throw new Error("INVALID_RESPONSE");
+        }
+
+        // SAVE PROFILE
         userProfile = {
-          username: input,
-          followers: Math.floor(Math.random() * 50000) + 1000,
-          following: Math.floor(Math.random() * 1000) + 100
+          username: data.username,
+          followers: data.followers,
+          following: data.following,
+          profile_pic: data.profile_pic
         };
 
-        // Update profile display
-        document.getElementById("profileUsername").textContent = "@" + userProfile.username;
-        document.getElementById("profileFollowers").textContent =
-          userProfile.followers > 1000 ? (userProfile.followers / 1000).toFixed(1) + "K" : userProfile.followers;
-        document.getElementById("profileFollowing").textContent = userProfile.following;
-        document.getElementById("summaryPkg").textContent = currentPackage.name;
-        document.getElementById("summaryPrice").textContent = currentPackage.price;
+        // PROXY DP URL
+        const proxyDP =
+          "https://without-proxy.vercel.app/proxy-image/?url=" +
+          encodeURIComponent(data.profile_pic) +
+          "&max_retries=2";
 
-        // Switch to screen 2
+        // UPDATE UI
+        document.getElementById("profileUsername").textContent =
+          "@" + data.username;
+
+        document.getElementById("profileFollowers").textContent =
+          data.followers >= 1000
+            ? (data.followers / 1000).toFixed(1) + "K"
+            : data.followers;
+
+        document.getElementById("profileFollowing").textContent =
+          data.following;
+
+        document.getElementById("summaryPkg").textContent =
+          currentPackage.name;
+
+        document.getElementById("summaryPrice").textContent =
+          currentPackage.price;
+
+        document.getElementById("profilePic").src = proxyDP;
+
+        // NEXT SCREEN
         goToScreen(2);
 
-        verifyBtn.innerHTML = originalText;
+      } catch (err) {
+        console.error(err);
+        
+        // Show error message without breaking the modal structure
+        document.getElementById("error-username").textContent = "@" + username;
+        document.getElementById("screen1-form").classList.add("hidden");
+        document.getElementById("screen1-error").classList.remove("hidden");
+
+      } finally {
+        verifyBtn.innerHTML = originalHTML;
         verifyBtn.disabled = false;
-      }, 1500);
+      }
     }
 
     function goToScreen(screenNumber) {
@@ -950,8 +1039,7 @@
       setTimeout(() => {
         alert(`Payment via ${method.toUpperCase()} initiated! Redirecting to payment gateway...`);
         window.open('https://example.com/payment', '_blank');
-        resetBuyModal();
-        document.getElementById("buyModal").classList.add("hidden");
+        closeBuyModal();
 
         // Reset button
         setTimeout(() => {
@@ -959,11 +1047,6 @@
           paymentBtn.disabled = false;
         }, 1000);
       }, 2000);
-    }
-
-    function closeBuyModal() {
-      document.getElementById("buyModal").classList.add("hidden");
-      resetBuyModal();
     }
 
     // ========== ORDER HISTORY ==========
