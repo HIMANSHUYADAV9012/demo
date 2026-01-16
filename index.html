@@ -152,90 +152,79 @@
   <section id="home" class="fade-in">
 
     <!-- HERO BANNER -->
-   <div class="px-4 pt-4">
-  <div id="banner"
-       class="relative rounded-2xl bg-white shadow-lg select-none overflow-hidden">
+    <div class="px-4 pt-4">
+      <div id="banner" class="relative rounded-2xl bg-white shadow-lg select-none overflow-hidden">
 
-    <!-- SLIDES -->
-    <div id="track"
-         class="flex transition-transform duration-[900ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
+        <!-- SLIDES -->
+        <div id="track" class="flex transition-transform duration-[900ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
 
-      <!-- SLIDE 1 -->
-      <div class="min-w-full">
-        <picture>
-          <!-- DESKTOP -->
-          <source media="(min-width:768px)" srcset="d1.png">
+          <!-- SLIDE 1 -->
+          <div class="min-w-full">
+            <picture>
+              <!-- DESKTOP -->
+              <source media="(min-width:768px)" srcset="d1.png">
 
-          <!-- MOBILE -->
-          <img src="p1.png"
-               class="w-full 
+              <!-- MOBILE -->
+              <img src="p1.png" class="w-full 
                       h-auto md:h-[260px]
                       object-contain md:object-cover
-                      bg-white"
-               loading="lazy"
-               alt="Instagram Followers Growth">
-        </picture>
-      </div>
+                      bg-white" loading="lazy" alt="Instagram Followers Growth">
+            </picture>
+          </div>
 
-      <!-- SLIDE 2 -->
-      <div class="min-w-full">
-        <picture>
-          <source media="(min-width:768px)"
-            srcset="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=1400&h=350&fit=crop">
+          <!-- SLIDE 2 -->
+          <div class="min-w-full">
+            <picture>
+              <source media="(min-width:768px)"
+                srcset="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=1400&h=350&fit=crop">
 
-          <img src="p2.png"
-               class="w-full 
+              <img src="p2.png" class="w-full 
                       h-auto md:h-[260px]
                       object-contain md:object-cover
-                      bg-white"
-               loading="lazy"
-               alt="Instagram Likes">
-        </picture>
-      </div>
+                      bg-white" loading="lazy" alt="Instagram Likes">
+            </picture>
+          </div>
 
-      <!-- SLIDE 3 -->
-      <div class="min-w-full">
-        <picture>
-          <source media="(min-width:768px)"
-            srcset="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=1400&h=350&fit=crop">
+          <!-- SLIDE 3 -->
+          <div class="min-w-full">
+            <picture>
+              <source media="(min-width:768px)"
+                srcset="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=1400&h=350&fit=crop">
 
-          <img src="p3.png"
-               class="w-full 
+              <img src="p3.png" class="w-full 
                       h-auto md:h-[260px]
                       object-contain md:object-cover
-                      bg-white"
-               loading="lazy"
-               alt="Instagram Reels Views">
-        </picture>
+                      bg-white" loading="lazy" alt="Instagram Reels Views">
+            </picture>
+          </div>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
+            <div class="h-full bg-white rounded-full bar"></div>
+          </div>
+          <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
+            <div class="h-full bg-white rounded-full bar"></div>
+          </div>
+          <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
+            <div class="h-full bg-white rounded-full bar"></div>
+          </div>
+        </div>
+
+        <!-- ARROWS -->
+        <button onclick="prevSlide()"
+          class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition hidden sm:flex">
+          <i class="fas fa-chevron-left text-sm"></i>
+        </button>
+
+        <button onclick="nextSlide()"
+          class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition hidden sm:flex">
+          <i class="fas fa-chevron-right text-sm"></i>
+        </button>
+
       </div>
     </div>
-
-    <!-- PROGRESS -->
-    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-      <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
-        <div class="h-full bg-white rounded-full bar"></div>
-      </div>
-      <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
-        <div class="h-full bg-white rounded-full bar"></div>
-      </div>
-      <div class="w-6 h-1 bg-gray-300/80 rounded-full overflow-hidden">
-        <div class="h-full bg-white rounded-full bar"></div>
-      </div>
-    </div>
-
-    <!-- ARROWS -->
-    <button onclick="prevSlide()"
-      class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition hidden sm:flex">
-      <i class="fas fa-chevron-left text-sm"></i>
-    </button>
-
-    <button onclick="nextSlide()"
-      class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition hidden sm:flex">
-      <i class="fas fa-chevron-right text-sm"></i>
-    </button>
-
-  </div>
-</div>
 
     <!-- WALLET -->
     <div class="px-4 mt-4">
@@ -271,17 +260,16 @@
           onclick="loadService('reels',this)">
           <i class="fas fa-play-circle"></i> Reel Likes
         </button>
-        <button class="tab px-5 py-2.5 rounded-xl border text-sm font-medium whitespace-nowrap flex items-center gap-2"
+        <button class="hidden px-5 py-2.5 rounded-xl border text-sm font-medium whitespace-nowrap flex items-center gap-2"
           onclick="loadService('views',this)">
           <i class="fas fa-eye"></i> Views
         </button>
       </div>
     </div>
 
-  <!-- PLANS -->
-<div id="plans"
-     class="px-4 grid grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pb-20">
-</div>
+    <!-- PLANS -->
+    <div id="plans" class="px-4 grid grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pb-20">
+    </div>
 
 
   </section>
@@ -772,14 +760,22 @@
               <h3 class="heading text-sm">${name}</h3>
               <div class="flex items-center gap-2 mt-1">
                 <span class="text-xs text-gray-500">Delivery: </span>
-                <span class="text-xs font-medium text-green-600">Instant</span>
+                <span class="text-xs font-medium text-green-600">3-4 HOUR </span>
               </div>
+              <p class="text-[11px] text-black-500 mt-0.5">
+  Real • Active • Permanent
+</p>
               <p class="text-xl font-bold mt-2">${price}</p>
               <p class="text-xs text-gray-500 mt-1">₹${(parseInt(price.replace('₹',''))/parseInt(name.split('K')[0])/1000).toFixed(3)} per unit</p>
             </div>
-            <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center">
-              <i class="fas fa-bolt text-pink-600"></i>
-            </div>
+            <div
+  class="w-8 h-8 min-w-[32px] min-h-[32px] 
+         rounded-full bg-pink-100 
+         flex items-center justify-center 
+         flex-shrink-0">
+  <i class="fas fa-bolt text-pink-600 text-sm"></i>
+</div>
+
           </div>
           <button onclick="openBuyModal('${name}', '${price}', '${type}')" 
                   class="mt-4 w-full py-2.5 insta-gradient text-white rounded-xl font-medium text-sm hover:opacity-90 transition">
@@ -1148,7 +1144,7 @@
         if (e.target.id === 'addFundsModal') closeAddFunds();
       });
     });
-  </script> 
+  </script>
 
 </body>
 
