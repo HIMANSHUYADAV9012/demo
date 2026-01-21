@@ -267,6 +267,9 @@
       </div>
     </div>
 
+    <br>
+    
+
     <!-- PLANS -->
     <div id="plans" class="px-4 grid grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pb-20">
     </div>
@@ -794,13 +797,7 @@
               <p class="text-xl font-bold mt-2">${price}</p>
               <p class="text-xs text-gray-500 mt-1">₹${(parseInt(price.replace('₹',''))/parseInt(name.split('K')[0])/1000).toFixed(3)} per unit</p>
             </div>
-            <div
-              class="w-8 h-8 min-w-[32px] min-h-[32px] 
-                     rounded-full bg-pink-100 
-                     flex items-center justify-center 
-                     flex-shrink-0">
-              <i class="fas fa-bolt text-pink-600 text-sm"></i>
-            </div>
+            
           </div>
           <button onclick="openBuyModal('${name}', '${price}', '${type}')" 
                   class="mt-4 w-full py-2.5 insta-gradient text-white rounded-xl font-medium text-sm hover:opacity-90 transition">
