@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>FollowersHub | Premium Instagram Growth Services</title>
+  
+  <!-- Meta Tags for SEO & Social -->
+  <meta name="description" content="Get premium Instagram followers, likes, and views from real, active profiles. The highest quality Instagram growth service for influencers and brands.">
+  <meta name="keywords" content="Instagram followers, Instagram likes, premium followers, real Instagram growth, social media marketing">
+  <meta property="og:title" content="FollowersHub - Premium Instagram Growth">
+  <meta property="og:description" content="Premium Instagram growth services with real, active followers and engagement.">
+  <meta property="og:image" content="https://followershub.com/og-image.jpg">
+  <meta property="og:url" content="https://followershub.com">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    :root {
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+      --gradient-hover: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #334155;
+      background-color: #ffffff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .gradient-bg {
+      background: var(--gradient);
+    }
+    
+    .gradient-border {
+      border: 2px solid transparent;
+      background: linear-gradient(white, white) padding-box, var(--gradient) border-box;
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Smooth animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    /* Floating animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    /* Button hover effects */
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .btn-primary:hover {
+      background: var(--gradient-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+    }
+    
+    .btn-primary:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s ease;
+      z-index: -1;
+    }
+    
+    .btn-primary:hover:before {
+      left: 100%;
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--dark);
+      border: 2px solid #e2e8f0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Card hover effects */
+    .service-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid #f1f5f9;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      border-color: transparent;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--gradient);
+      border-radius: 4px;
+    }
+    
+    /* Navbar scroll effect */
+    .navbar-scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Stats counter animation */
+    .counter {
+      font-variant-numeric: tabular-nums;
+    }
+    
+    /* Glow effect */
+    .glow {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+    }
+    
+    /* Loading animation for Google button */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Staggered animation for lists */
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    /* Responsive adjustments - FIXED */
+    @media (max-width: 768px) {
+      .mobile-menu-open {
+        transform: translateX(0) !important;
+      }
+      
+      /* Mobile-specific adjustments */
+      .section-padding {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+      }
+      
+      .mobile-stack {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .mobile-center {
+        text-align: center;
+      }
+      
+      .mobile-full-width {
+        width: 100% !important;
+      }
+      
+      .mobile-p-4 {
+        padding: 1rem !important;
+      }
+      
+      /* Fix counter for mobile */
+      .counter-container {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem !important;
+      }
+      
+      .counter {
+        font-size: 2rem !important;
+      }
+      
+      /* Fix hero buttons */
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .hero-buttons button {
+        width: 100% !important;
+        margin-bottom: 1rem;
+      }
+      
+      /* Fix dashboard preview overflow */
+      .dashboard-preview {
+        transform: scale(0.85);
+        margin: 0 auto;
+        max-width: 100%;
+        overflow: hidden;
+      }
+      
+      /* Fix floating elements on mobile */
+      .float-element {
+        display: none !important;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .mobile-text-center {
+        text-align: center !important;
+      }
+      
+      .mobile-mt-4 {
+        margin-top: 1rem !important;
+      }
+      
+      .mobile-p-2 {
+        padding: 0.5rem !important;
+      }
+      
+      /* Adjust font sizes for mobile */
+      h1 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+      }
+      
+      h2 {
+        font-size: 1.75rem !important;
+      }
+      
+      h3 {
+        font-size: 1.5rem !important;
+      }
+      
+      .text-xl {
+        font-size: 1.125rem !important;
+      }
+      
+      /* Fix counter grid for very small screens */
+      .counter-container {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+  
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full z-50 py-3 md:py-4 transition-all duration-500 bg-white">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center shadow-lg">
+            <span class="text-white font-bold text-lg">FH</span>
+          </div>
+          <span class="text-2xl font-bold gradient-text">FollowersHub</span>
+        </div>
+        
+        <div class="hidden lg:flex items-center space-x-8">
+          <a href="#home" class="font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-300">Home</a>
+          <a href="#features" class="font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-300">Features</a>
+          <a href="#services" class="font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-300">Services</a>
+          <a href="#pricing" class="font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-300">Pricing</a>
+          <a href="#testimonials" class="font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-300">Testimonials</a>
+          <a href="#faq" class="font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-300">FAQ</a>
+          
+          <div class="flex items-center space-x-4">
+            <button id="loginBtn" class="px-5 py-2.5 font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-300">
+              Log In
+            </button>
+            <button id="signupBtn" class="px-6 py-3 gradient-bg text-white font-semibold rounded-xl btn-primary flex items-center space-x-2">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.64 9.20455C17.64 8.56636 17.5827 7.95273 17.4764 7.36364H9V10.845H13.8436C13.635 11.97 13.0009 12.9232 12.0477 13.5614V15.8195H14.9564C16.6582 14.2527 17.64 11.9455 17.64 9.20455Z" fill="#4285F4"/>
+                <path d="M9 18C11.43 18 13.4673 17.1941 14.9564 15.8195L12.0477 13.5614C11.2418 14.1014 10.2109 14.4205 9 14.4205C6.65591 14.4205 4.67182 12.8373 3.96409 10.71H0.957275V13.0418C2.43818 15.9832 5.48182 18 9 18Z" fill="#34A853"/>
+                <path d="M3.96409 10.71C3.78409 10.17 3.68182 9.59318 3.68182 9C3.68182 8.40682 3.78409 7.83 3.96409 7.29V4.95818H0.957273C0.347727 6.17318 0 7.54773 0 9C0 10.4523 0.347727 11.8268 0.957273 13.0418L3.96409 10.71Z" fill="#FBBC05"/>
+                <path d="M9 3.57955C10.3214 3.57955 11.5077 4.03364 12.4405 4.92545L15.0218 2.34409C13.4632 0.891818 11.4259 0 9 0C5.48182 0 2.43818 2.01682 0.957275 4.95818L3.96409 7.29C4.67182 5.16273 6.65591 3.57955 9 3.57955Z" fill="#EA4335"/>
+              </svg>
+              <span>Sign Up</span>
+            </button>
+          </div>
+        </div>
+        
+        <button id="mobileMenuBtn" class="lg:hidden text-2xl text-gray-700">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="lg:hidden fixed inset-0 z-40 transform -translate-x-full transition-transform duration-500 ease-in-out">
+    <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+    <div class="relative w-full sm:w-80 h-full bg-white shadow-2xl">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-8">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
+              <span class="text-white font-bold">FH</span>
+            </div>
+            <span class="text-xl font-bold gradient-text">FollowersHub</span>
+          </div>
+          <button id="closeMobileMenu" class="text-2xl text-gray-500">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="space-y-6 mb-8">
+          <a href="#home" class="block text-lg font-semibold text-gray-700 hover:text-indigo-600 transition-colors py-2">Home</a>
+          <a href="#features" class="block text-lg font-semibold text-gray-700 hover:text-indigo-600 transition-colors py-2">Features</a>
+          <a href="#services" class="block text-lg font-semibold text-gray-700 hover:text-indigo-600 transition-colors py-2">Services</a>
+          <a href="#testimonials" class="block text-lg font-semibold text-gray-700 hover:text-indigo-600 transition-colors py-2">Testimonials</a>
+          <a href="#faq" class="block text-lg font-semibold text-gray-700 hover:text-indigo-600 transition-colors py-2">FAQ</a>
+        </div>
+        
+        <div class="space-y-4">
+          <button id="mobileLoginBtn" class="w-full py-3 font-semibold text-gray-700 border border-gray-300 rounded-xl hover:border-indigo-600 hover:text-indigo-600 transition-colors">
+            Log In
+          </button>
+          <button id="mobileSignupBtn" class="w-full py-3 gradient-bg text-white font-semibold rounded-xl btn-primary flex items-center justify-center space-x-2">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.64 9.20455C17.64 8.56636 17.5827 7.95273 17.4764 7.36364H9V10.845H13.8436C13.635 11.97 13.0009 12.9232 12.0477 13.5614V15.8195H14.9564C16.6582 14.2527 17.64 11.9455 17.64 9.20455Z" fill="#4285F4"/>
+              <path d="M9 18C11.43 18 13.4673 17.1941 14.9564 15.8195L12.0477 13.5614C11.2418 14.1014 10.2109 14.4205 9 14.4205C6.65591 14.4205 4.67182 12.8373 3.96409 10.71H0.957275V13.0418C2.43818 15.9832 5.48182 18 9 18Z" fill="#34A853"/>
+              <path d="M3.96409 10.71C3.78409 10.17 3.68182 9.59318 3.68182 9C3.68182 8.40682 3.78409 7.83 3.96409 7.29V4.95818H0.957273C0.347727 6.17318 0 7.54773 0 9C0 10.4523 0.347727 11.8268 0.957273 13.0418L3.96409 10.71Z" fill="#FBBC05"/>
+              <path d="M9 3.57955C10.3214 3.57955 11.5077 4.03364 12.4405 4.92545L15.0218 2.34409C13.4632 0.891818 11.4259 0 9 0C5.48182 0 2.43818 2.01682 0.957275 4.95818L3.96409 7.29C4.67182 5.16273 6.65591 3.57955 9 3.57955Z" fill="#EA4335"/>
+            </svg>
+            <span>Sign Up with Google</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section - FIXED FOR MOBILE -->
+  <section id="home" class="pt-24 pb-16 md:pt-40 md:pb-28 overflow-hidden">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-12 lg:mb-0 slide-in-left mobile-center">
+          <div class="inline-flex items-center space-x-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mb-6 mobile-full-width justify-center">
+            <span class="w-2 h-2 bg-indigo-600 rounded-full"></span>
+            <span>Trusted by 50,000+ Instagram influencers</span>
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight mobile-text-center">
+            Premium <span class="gradient-text">Instagram Growth</span> for Serious Creators
+          </h1>
+          
+          <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mobile-center mobile-mt-4">
+            Get real, high-quality followers, likes, and views from active Instagram profiles. 
+            Our premium service delivers sustainable growth with 24/7 support.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mb-12 hero-buttons">
+            <button id="heroSignupBtn" class="px-8 py-4 gradient-bg text-white font-semibold rounded-xl text-lg btn-primary flex items-center justify-center space-x-3 mobile-full-width">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.6 10.2273C19.6 9.51818 19.5364 8.83636 19.4182 8.18182H10V12.05H15.3818C15.15 13.3 14.4455 14.3591 13.3864 15.0682V17.5773H16.6182C18.5091 15.8364 19.6 13.2727 19.6 10.2273Z" fill="#4285F4"/>
+                <path d="M10 20C12.7 20 14.9636 19.1045 16.6182 17.5773L13.3864 15.0682C12.4909 15.6682 11.3455 16.0227 10 16.0227C7.39545 16.0227 5.19091 14.2636 4.40455 11.9H1.06364V14.3918C2.70909 17.7591 6.09091 20 10 20Z" fill="#34A853"/>
+                <path d="M4.40455 11.9C4.20455 11.3 4.09091 10.6591 4.09091 10C4.09091 9.34091 4.20455 8.7 4.40455 8.1V5.60818H1.06364C0.386364 7.01364 0 8.60909 0 10C0 11.3909 0.386364 12.9864 1.06364 14.3918L4.40455 11.9Z" fill="#FBBC05"/>
+                <path d="M10 3.97727C11.4682 3.97727 12.7864 4.48182 13.8227 5.47273L16.6909 2.60455C14.9591 0.990909 12.6955 0 10 0C6.09091 0 2.70909 2.24091 1.06364 5.60818L4.40455 8.1C5.19091 5.73636 7.39545 3.97727 10 3.97727Z" fill="#EA4335"/>
+              </svg>
+              <span>Start Free with Google</span>
+            </button>
+            <a href="#services" class="px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 font-semibold rounded-xl text-lg text-center hover:border-indigo-600 hover:text-indigo-600 transition-all duration-300 flex items-center justify-center mobile-full-width">
+              <span>View Services</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          
+          <div class="flex flex-col sm:flex-row sm:flex-wrap gap-6 mobile-center">
+            <div class="flex items-center justify-center sm:justify-start">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 flex items-center justify-center mr-3 shadow-sm">
+                <i class="fas fa-check text-emerald-600"></i>
+              </div>
+              <span class="font-semibold">Real & Active Profiles</span>
+            </div>
+            <div class="flex items-center justify-center sm:justify-start">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-100 to-cyan-100 flex items-center justify-center mr-3 shadow-sm">
+                <i class="fas fa-bolt text-blue-600"></i>
+              </div>
+              <span class="font-semibold">Fast Delivery</span>
+            </div>
+            <div class="flex items-center justify-center sm:justify-start">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center mr-3 shadow-sm">
+                <i class="fas fa-shield-alt text-purple-600"></i>
+              </div>
+              <span class="font-semibold">100% Safe</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:w-1/2 slide-in-right mt-12 lg:mt-0">
+          <div class="relative dashboard-preview">
+            <div class="relative z-10 bg-white rounded-2xl shadow-xl overflow-hidden gradient-border p-1 mx-auto max-w-lg">
+              <div class="bg-gradient-to-r from-gray-50 to-indigo-50 p-6 md:p-8">
+                <div class="flex items-center justify-between mb-6">
+                  <h3 class="text-xl font-bold">Dashboard Preview</h3>
+                  <div class="flex space-x-2">
+                    <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                  </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                  <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+                    <div class="text-2xl font-bold text-gray-800 counter" data-count="10">0</div>
+                    <div class="text-sm text-gray-600">Active Services</div>
+                  </div>
+                  <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+                    <div class="text-2xl font-bold text-gray-800 counter" data-count="500">0</div>
+                    <div class="text-sm text-gray-600">Orders Completed</div>
+                  </div>
+                  <div class="bg-white rounded-xl p-4 text-center shadow-sm col-span-2 md:col-span-1">
+                    <div class="text-2xl font-bold text-gray-800 counter" data-count="99">0</div>
+                    <div class="text-sm text-gray-600">Satisfaction Rate</div>
+                  </div>
+                </div>
+                
+                <div class="space-y-4">
+                  <div class="flex flex-col sm:flex-row items-center justify-between p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4 sm:mb-0">
+                      <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mr-4">
+                        <i class="fas fa-users text-white"></i>
+                      </div>
+                      <div>
+                        <div class="font-bold">Premium Followers</div>
+                        <div class="text-sm text-gray-500">Real & Active Profiles</div>
+                      </div>
+                    </div>
+                    <button class="px-4 py-2 gradient-bg text-white text-sm rounded-lg btn-primary w-full sm:w-auto">
+                      Buy Now
+                    </button>
+                  </div>
+                  <div class="flex flex-col sm:flex-row items-center justify-between p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-4 sm:mb-0">
+                      <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mr-4">
+                        <i class="fas fa-heart text-white"></i>
+                      </div>
+                      <div>
+                        <div class="font-bold">Premium Likes</div>
+                        <div class="text-sm text-gray-500">High Retention</div>
+                      </div>
+                    </div>
+                    <button class="px-4 py-2 gradient-bg text-white text-sm rounded-lg btn-primary w-full sm:w-auto">
+                      Buy Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Floating elements - Hidden on mobile -->
+            <div class="absolute -top-6 -right-6 w-40 h-40 rounded-full bg-gradient-to-r from-indigo-200 to-purple-200 opacity-30 float-animation float-element hidden md:block"></div>
+            <div class="absolute -bottom-8 -left-8 w-48 h-48 rounded-full bg-gradient-to-r from-pink-200 to-rose-200 opacity-20 float-animation float-element hidden md:block" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 -right-12 w-24 h-24 rounded-full bg-gradient-to-r from-blue-200 to-cyan-200 opacity-20 float-animation float-element hidden md:block" style="animation-delay: 2s;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section - FIXED FOR MOBILE -->
+  <section class="py-12 md:py-16 bg-gradient-to-r from-gray-900 to-slate-900 text-white">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 counter-container">
+        <div class="text-center scale-in">
+          <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 counter" data-count="50">0</div>
+          <div class="text-gray-300 text-sm md:text-base">Thousand Happy Customers</div>
+        </div>
+        <div class="text-center scale-in">
+          <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 counter" data-count="5">0</div>
+          <div class="text-gray-300 text-sm md:text-base">Million Followers Delivered</div>
+        </div>
+        <div class="text-center scale-in">
+          <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 counter" data-count="99">0</div>
+          <div class="text-gray-300 text-sm md:text-base">Percent Uptime Guarantee</div>
+        </div>
+        <div class="text-center scale-in">
+          <div class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 counter" data-count="24">0</div>
+          <div class="text-gray-300 text-sm md:text-base">/7 Customer Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section - FIXED FOR MOBILE -->
+  <section id="features" class="py-12 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Why FollowersHub Stands Out</h2>
+        <p class="text-lg text-gray-600">
+          We're not just another growth service. We're the premium choice for serious Instagram creators and brands.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div class="bg-white rounded-2xl p-6 md:p-8 text-center service-card fade-in" style="transition-delay: 0.1s">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+            <i class="fas fa-crown text-white text-xl md:text-2xl"></i>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-4">Premium Quality</h3>
+          <p class="text-gray-600 text-sm md:text-base">
+            We deliver only real, active Instagram profiles. No bots, no fake accounts, just genuine growth.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 md:p-8 text-center service-card fade-in" style="transition-delay: 0.2s">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+            <i class="fas fa-rocket text-white text-xl md:text-2xl"></i>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-4">Rapid Delivery</h3>
+          <p class="text-gray-600 text-sm md:text-base">
+            Start seeing results in minutes. Our high-speed delivery ensures you don't wait for growth.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 md:p-8 text-center service-card fade-in" style="transition-delay: 0.3s">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-500 flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+            <i class="fas fa-shield-alt text-white text-xl md:text-2xl"></i>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-4">100% Safe</h3>
+          <p class="text-gray-600 text-sm md:text-base">
+            Your account security is our top priority. We use secure methods that comply with Instagram's guidelines.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 md:p-8 text-center service-card fade-in" style="transition-delay: 0.4s">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+            <i class="fas fa-headset text-white text-xl md:text-2xl"></i>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-4">24/7 Support</h3>
+          <p class="text-gray-600 text-sm md:text-base">
+            Our dedicated support team is always available to assist you with any questions or concerns.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section - FIXED FOR MOBILE -->
+  <section id="services" class="py-12 md:py-20">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Premium Services</h2>
+        <p class="text-lg text-gray-600">
+          Choose from our range of high-quality Instagram growth services. Each designed for maximum impact.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <!-- Followers Card -->
+        <div class="bg-gradient-to-b from-white to-gray-50 rounded-2xl shadow-xl overflow-hidden service-card fade-in mobile-full-width">
+          <div class="p-6 md:p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl gradient-bg flex items-center justify-center">
+                <i class="fas fa-users text-white text-xl md:text-2xl"></i>
+              </div>
+              <span class="px-3 py-1 md:px-4 md:py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-xs md:text-sm font-semibold">Most Popular</span>
+            </div>
+            
+            <h3 class="text-xl md:text-2xl font-bold mb-4">Premium Followers</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Get real, active followers who engage with your content. Our premium followers help boost your credibility and reach.
+            </p>
+            
+            <div class="space-y-3 md:space-y-4 mb-6 md:mb-8">
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">Real & Active Profiles</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">High Retention Rate</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">Gradual & Natural Delivery</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">24/7 Priority Support</span>
+              </div>
+            </div>
+            
+            <div class="text-center mb-6">
+              <div class="text-3xl md:text-4xl font-bold mb-2 gradient-text">Starting at ₹99</div>
+              <p class="text-sm text-gray-500">Perfect for influencers & brands</p>
+            </div>
+            
+            <button class="w-full py-3 md:py-4 gradient-bg text-white font-semibold rounded-xl btn-primary text-sm md:text-base">
+              Get Started Now
+            </button>
+          </div>
+        </div>
+        
+        <!-- Likes Card -->
+        <div class="bg-gradient-to-b from-white to-gray-50 rounded-2xl shadow-xl overflow-hidden service-card fade-in mobile-full-width" style="transition-delay: 0.1s">
+          <div class="p-6 md:p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 flex items-center justify-center">
+                <i class="fas fa-heart text-white text-xl md:text-2xl"></i>
+              </div>
+              <span class="px-3 py-1 md:px-4 md:py-1.5 bg-rose-100 text-rose-700 rounded-full text-xs md:text-sm font-semibold">Fast Delivery</span>
+            </div>
+            
+            <h3 class="text-xl md:text-2xl font-bold mb-4">Premium Likes</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Boost your post engagement with premium likes from real users. Increase visibility and reach more people.
+            </p>
+            
+            <div class="space-y-3 md:space-y-4 mb-6 md:mb-8">
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">Real Engagement</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">Fast Delivery</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">Targeted Likes</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">High-Quality Profiles</span>
+              </div>
+            </div>
+            
+            <div class="text-center mb-6">
+              <div class="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent">Starting at ₹49</div>
+              <p class="text-sm text-gray-500">Boost any post instantly</p>
+            </div>
+            
+            <button class="w-full py-3 md:py-4 bg-gradient-to-r from-rose-500 to-pink-500 text-white font-semibold rounded-xl hover:from-rose-600 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl text-sm md:text-base">
+              Get Started Now
+            </button>
+          </div>
+        </div>
+        
+        <!-- Views Card -->
+        <div class="bg-gradient-to-b from-white to-gray-50 rounded-2xl shadow-xl overflow-hidden service-card fade-in mobile-full-width" style="transition-delay: 0.2s">
+          <div class="p-6 md:p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-500 flex items-center justify-center">
+                <i class="fas fa-play-circle text-white text-xl md:text-2xl"></i>
+              </div>
+              <span class="px-3 py-1 md:px-4 md:py-1.5 bg-violet-100 text-violet-700 rounded-full text-xs md:text-sm font-semibold">Trending</span>
+            </div>
+            
+            <h3 class="text-xl md:text-2xl font-bold mb-4">Reels & Views</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Increase your Reels views and engagement. Get more visibility on Instagram's fastest-growing feature.
+            </p>
+            
+            <div class="space-y-3 md:space-y-4 mb-6 md:mb-8">
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">Real Views</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">High Retention</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">Fast Start</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-emerald-600 text-xs"></i>
+                </div>
+                <span class="font-medium text-sm md:text-base">Algorithm Friendly</span>
+              </div>
+            </div>
+            
+            <div class="text-center mb-6">
+              <div class="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent">Starting at ₹79</div>
+              <p class="text-sm text-gray-500">Maximize Reels potential</p>
+            </div>
+            
+            <button class="w-full py-3 md:py-4 bg-gradient-to-r from-violet-500 to-purple-500 text-white font-semibold rounded-xl hover:from-violet-600 hover:to-purple-600 transition-all shadow-lg hover:shadow-xl text-sm md:text-base">
+              Get Started Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works - FIXED FOR MOBILE -->
+  <section class="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">How It Works</h2>
+        <p class="text-lg text-gray-600">
+          Getting started with FollowersHub is simple, secure, and takes just minutes.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-8">
+        <div class="text-center fade-in">
+          <div class="relative mb-8">
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl gradient-bg flex items-center justify-center mx-auto shadow-lg z-10 relative">
+              <i class="fab fa-google text-white text-xl md:text-2xl"></i>
+            </div>
+            <div class="absolute top-8 md:top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-indigo-200 to-purple-200 -z-10 hidden md:block"></div>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-4">Sign Up with Google</h3>
+          <p class="text-gray-600 text-sm md:text-base">
+            One-click registration using your Google account. No passwords to remember.
+          </p>
+        </div>
+        
+        <div class="text-center fade-in" style="transition-delay: 0.1s">
+          <div class="relative mb-8">
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mx-auto shadow-lg z-10 relative">
+              <i class="fas fa-box-open text-white text-xl md:text-2xl"></i>
+            </div>
+            <div class="absolute top-8 md:top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-blue-200 to-cyan-200 -z-10 hidden md:block"></div>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-4">Select Service</h3>
+          <p class="text-gray-600 text-sm md:text-base">
+            Choose followers, likes, or views. Pick the package that fits your goals.
+          </p>
+        </div>
+        
+        <div class="text-center fade-in" style="transition-delay: 0.2s">
+          <div class="relative mb-8">
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-500 flex items-center justify-center mx-auto shadow-lg z-10 relative">
+              <i class="fas fa-user-check text-white text-xl md:text-2xl"></i>
+            </div>
+            <div class="absolute top-8 md:top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-emerald-200 to-green-200 -z-10 hidden md:block"></div>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-4">Enter Details</h3>
+          <p class="text-gray-600 text-sm md:text-base">
+            Provide your Instagram username or post link. We handle everything else.
+          </p>
+        </div>
+        
+        <div class="text-center fade-in" style="transition-delay: 0.3s">
+          <div class="relative mb-8">
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mx-auto shadow-lg">
+              <i class="fas fa-chart-line text-white text-xl md:text-2xl"></i>
+            </div>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-4">Watch Growth</h3>
+          <p class="text-gray-600 text-sm md:text-base">
+            Sit back and watch your Instagram grow. Delivery starts within minutes.
+          </p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12 md:mt-16">
+        <button id="worksSignupBtn" class="px-6 py-3 md:px-10 md:py-4 gradient-bg text-white font-semibold rounded-xl text-base md:text-lg btn-primary flex items-center justify-center mx-auto space-x-3 mobile-full-width max-w-md">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.6 10.2273C19.6 9.51818 19.5364 8.83636 19.4182 8.18182H10V12.05H15.3818C15.15 13.3 14.4455 14.3591 13.3864 15.0682V17.5773H16.6182C18.5091 15.8364 19.6 13.2727 19.6 10.2273Z" fill="#4285F4"/>
+            <path d="M10 20C12.7 20 14.9636 19.1045 16.6182 17.5773L13.3864 15.0682C12.4909 15.6682 11.3455 16.0227 10 16.0227C7.39545 16.0227 5.19091 14.2636 4.40455 11.9H1.06364V14.3918C2.70909 17.7591 6.09091 20 10 20Z" fill="#34A853"/>
+            <path d="M4.40455 11.9C4.20455 11.3 4.09091 10.6591 4.09091 10C4.09091 9.34091 4.20455 8.7 4.40455 8.1V5.60818H1.06364C0.386364 7.01364 0 8.60909 0 10C0 11.3909 0.386364 12.9864 1.06364 14.3918L4.40455 11.9Z" fill="#FBBC05"/>
+            <path d="M10 3.97727C11.4682 3.97727 12.7864 4.48182 13.8227 5.47273L16.6909 2.60455C14.9591 0.990909 12.6955 0 10 0C6.09091 0 2.70909 2.24091 1.06364 5.60818L4.40455 8.1C5.19091 5.73636 7.39545 3.97727 10 3.97727Z" fill="#EA4335"/>
+          </svg>
+          <span>Start Growing Now</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials - FIXED FOR MOBILE -->
+  <section id="testimonials" class="py-12 md:py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Trusted by Instagram Creators</h2>
+        <p class="text-lg text-gray-600">
+          See what our customers have to say about their experience with FollowersHub.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-gradient-to-b from-white to-gray-50 rounded-2xl p-6 md:p-8 shadow-lg service-card fade-in">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-full gradient-bg flex items-center justify-center mr-4">
+              <span class="text-white font-bold">SR</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-base md:text-lg">Sarah Rodriguez</h4>
+              <p class="text-gray-500 text-sm md:text-base">Influencer | 250K Followers</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-6 text-sm md:text-base">
+            "FollowersHub transformed my Instagram presence. The followers are real and engage with my content. My engagement rate has doubled since I started."
+          </p>
+          <div class="flex text-amber-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-b from-white to-gray-50 rounded-2xl p-6 md:p-8 shadow-lg service-card fade-in" style="transition-delay: 0.1s">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mr-4">
+              <span class="text-white font-bold">MC</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-base md:text-lg">Mike Chen</h4>
+              <p class="text-gray-500 text-sm md:text-base">Business Owner</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-6 text-sm md:text-base">
+            "As a small business, Instagram is crucial for us. FollowersHub helped us gain genuine followers who are actually interested in our products."
+          </p>
+          <div class="flex text-amber-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-b from-white to-gray-50 rounded-2xl p-6 md:p-8 shadow-lg service-card fade-in" style="transition-delay: 0.2s">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mr-4">
+              <span class="text-white font-bold">AJ</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-base md:text-lg">Anaya Joshi</h4>
+              <p class="text-gray-500 text-sm md:text-base">Content Creator</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-6 text-sm md:text-base">
+            "I've tried other services before, but FollowersHub is by far the best. The quality is premium, delivery is fast, and their support is exceptional!"
+          </p>
+          <div class="flex text-amber-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section - FIXED FOR MOBILE -->
+  <section id="faq" class="py-12 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+        <p class="text-lg text-gray-600">
+          Find answers to the most common questions about our services.
+        </p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
+        <div class="bg-white rounded-2xl p-4 md:p-6 shadow-md fade-in">
+          <div class="flex justify-between items-center cursor-pointer faq-question">
+            <h3 class="text-base md:text-lg font-bold">Are the followers real?</h3>
+            <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
+          </div>
+          <div class="faq-answer mt-4 hidden">
+            <p class="text-gray-600 text-sm md:text-base">
+              Yes, all followers delivered through FollowersHub are 100% real, active Instagram users. We do not use bots or fake accounts. Our premium service focuses on quality and authenticity.
+            </p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-4 md:p-6 shadow-md fade-in" style="transition-delay: 0.1s">
+          <div class="flex justify-between items-center cursor-pointer faq-question">
+            <h3 class="text-base md:text-lg font-bold">Is it safe for my account?</h3>
+            <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
+          </div>
+          <div class="faq-answer mt-4 hidden">
+            <p class="text-gray-600 text-sm md:text-base">
+              Absolutely. We use safe, organic methods that comply with Instagram's terms of service. Our gradual delivery system mimics natural growth patterns, ensuring your account remains secure.
+            </p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-4 md:p-6 shadow-md fade-in" style="transition-delay: 0.2s">
+          <div class="flex justify-between items-center cursor-pointer faq-question">
+            <h3 class="text-base md:text-lg font-bold">How fast is delivery?</h3>
+            <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
+          </div>
+          <div class="faq-answer mt-4 hidden">
+            <p class="text-gray-600 text-sm md:text-base">
+              Delivery starts within 5-10 minutes of your order. For larger packages, delivery may take 24-48 hours to complete. You'll see results almost immediately.
+            </p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-4 md:p-6 shadow-md fade-in" style="transition-delay: 0.3s">
+          <div class="flex justify-between items-center cursor-pointer faq-question">
+            <h3 class="text-base md:text-lg font-bold">What payment methods do you accept?</h3>
+            <i class="fas fa-chevron-down text-gray-400 transition-transform"></i>
+          </div>
+          <div class="faq-answer mt-4 hidden">
+            <p class="text-gray-600 text-sm md:text-base">
+              We accept all major credit/debit cards, Google Pay, PhonePe, Paytm, and UPI. All payments are processed through secure, encrypted gateways.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA - FIXED FOR MOBILE -->
+  <section class="py-12 md:py-20 gradient-bg text-white">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="max-w-4xl mx-auto text-center fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Grow Your Instagram?</h2>
+        <p class="text-lg md:text-xl mb-8 md:mb-10 opacity-90">
+          Join thousands of influencers, brands, and businesses who trust FollowersHub for premium Instagram growth.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+          <button id="finalSignupBtn" class="px-6 py-3 md:px-10 md:py-4 bg-white text-gray-800 font-semibold rounded-xl text-base md:text-lg hover:bg-gray-100 transition-all shadow-2xl flex items-center justify-center space-x-3 mobile-full-width max-w-md mx-auto sm:mx-0">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.6 10.2273C19.6 9.51818 19.5364 8.83636 19.4182 8.18182H10V12.05H15.3818C15.15 13.3 14.4455 14.3591 13.3864 15.0682V17.5773H16.6182C18.5091 15.8364 19.6 13.2727 19.6 10.2273Z" fill="#4285F4"/>
+              <path d="M10 20C12.7 20 14.9636 19.1045 16.6182 17.5773L13.3864 15.0682C12.4909 15.6682 11.3455 16.0227 10 16.0227C7.39545 16.0227 5.19091 14.2636 4.40455 11.9H1.06364V14.3918C2.70909 17.7591 6.09091 20 10 20Z" fill="#34A853"/>
+              <path d="M4.40455 11.9C4.20455 11.3 4.09091 10.6591 4.09091 10C4.09091 9.34091 4.20455 8.7 4.40455 8.1V5.60818H1.06364C0.386364 7.01364 0 8.60909 0 10C0 11.3909 0.386364 12.9864 1.06364 14.3918L4.40455 11.9Z" fill="#FBBC05"/>
+              <path d="M10 3.97727C11.4682 3.97727 12.7864 4.48182 13.8227 5.47273L16.6909 2.60455C14.9591 0.990909 12.6955 0 10 0C6.09091 0 2.70909 2.24091 1.06364 5.60818L4.40455 8.1C5.19091 5.73636 7.39545 3.97727 10 3.97727Z" fill="#EA4335"/>
+            </svg>
+            <span>Sign Up with Google</span>
+          </button>
+          
+          <button id="finalLoginBtn" class="px-6 py-3 md:px-10 md:py-4 border-2 border-white text-white font-semibold rounded-xl text-base md:text-lg hover:bg-white hover:text-gray-800 transition-all mobile-full-width max-w-md mx-auto sm:mx-0">
+            <i class="fab fa-google mr-3"></i> Login with Google
+          </button>
+        </div>
+        
+        <p class="mt-8 text-sm opacity-80">
+          <i class="fas fa-shield-alt mr-2"></i> 100% Secure · 30-Day Money-Back Guarantee · No Hidden Fees
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer - FIXED FOR MOBILE -->
+  <footer class="bg-gray-900 text-white pt-12 pb-6 md:pt-16 md:pb-10">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10 mb-8 md:mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
+              <span class="text-white font-bold">FH</span>
+            </div>
+            <span class="text-2xl font-bold">FollowersHub</span>
+          </div>
+          <p class="text-gray-400 mb-8 max-w-md text-sm md:text-base">
+            Premium Instagram growth services with real, active followers and engagement. Trusted by 50,000+ influencers and brands worldwide.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">Services</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Instagram Followers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Instagram Likes</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Reels Views</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Story Views</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Comments</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">Company</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">About Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Blog</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Careers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Support</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">Legal</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Terms of Service</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Cookie Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Refund Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition text-sm md:text-base">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-6 md:pt-8 border-t border-gray-800 text-center">
+        <p class="text-gray-400 text-sm">
+          &copy; 2023 FollowersHub. All rights reserved. Instagram is a trademark of Meta Platforms, Inc. This site is not affiliated with Instagram.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Google Auth Modal - FIXED FOR MOBILE -->
+  <div id="googleAuthModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl scale-in mobile-full-width">
+      <div class="p-6 md:p-8">
+        <div class="text-center mb-6 md:mb-8">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+            <svg width="24" height="24" md:width="30" md:height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M29.4 15.3409C29.4 14.2773 29.3141 13.2545 29.1545 12.2727H15V17.7188H23.0636C22.7523 19.5 21.7514 20.9693 20.1716 21.9227V25.3491H25.0341C27.9873 22.9886 29.4 19.5341 29.4 15.3409Z" fill="#4285F4"/>
+              <path d="M15 30C19.05 30 22.425 28.6459 24.7591 26.2834L20.1716 21.9227C18.8627 22.807 17.1675 23.2955 15 23.2955C11.1336 23.2955 7.85727 20.587 6.71636 17.0159H1.635V20.5227C3.95727 25.2245 9.05273 30 15 30Z" fill="#34A853"/>
+              <path d="M6.71636 17.0159C6.30636 15.81 6.06818 14.5227 6.06818 13.1818C6.06818 11.8409 6.30636 10.5536 6.71636 9.34773V5.84091H1.635C0.231818 8.84 -0.5 12.2045 0.5 15.5227C1.5 18.8409 3.69318 21.6932 6.71636 23.5227C7.12636 22.3168 7.36418 21.0295 7.36418 19.6886C7.36418 18.3477 7.12636 17.0605 6.71636 15.8545V17.0159Z" fill="#FBBC05"/>
+              <path d="M15 5.70455C17.2027 5.70455 19.2027 6.43182 20.7523 7.84091L24.8864 3.70682C22.425 1.47727 19.05 0 15 0C9.05273 0 3.95727 4.77545 1.635 9.47727L6.71636 12.9841C7.85727 9.41318 11.1336 6.70455 15 6.70455V5.70455Z" fill="#EA4335"/>
+            </svg>
+          </div>
+          <h3 id="authModalTitle" class="text-xl md:text-2xl font-bold mb-2">Sign Up with Google</h3>
+          <p class="text-gray-600 text-sm md:text-base">Create your account in seconds. No password required.</p>
+        </div>
+        
+        <div class="space-y-4">
+          <button id="modalGoogleBtn" class="w-full py-3 md:py-4 gradient-bg text-white font-semibold rounded-xl btn-primary flex items-center justify-center space-x-3 text-sm md:text-base">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.6 10.2273C19.6 9.51818 19.5364 8.83636 19.4182 8.18182H10V12.05H15.3818C15.15 13.3 14.4455 14.3591 13.3864 15.0682V17.5773H16.6182C18.5091 15.8364 19.6 13.2727 19.6 10.2273Z" fill="#4285F4"/>
+              <path d="M10 20C12.7 20 14.9636 19.1045 16.6182 17.5773L13.3864 15.0682C12.4909 15.6682 11.3455 16.0227 10 16.0227C7.39545 16.0227 5.19091 14.2636 4.40455 11.9H1.06364V14.3918C2.70909 17.7591 6.09091 20 10 20Z" fill="#34A853"/>
+              <path d="M4.40455 11.9C4.20455 11.3 4.09091 10.6591 4.09091 10C4.09091 9.34091 4.20455 8.7 4.40455 8.1V5.60818H1.06364C0.386364 7.01364 0 8.60909 0 10C0 11.3909 0.386364 12.9864 1.06364 14.3918L4.40455 11.9Z" fill="#FBBC05"/>
+              <path d="M10 3.97727C11.4682 3.97727 12.7864 4.48182 13.8227 5.47273L16.6909 2.60455C14.9591 0.990909 12.6955 0 10 0C6.09091 0 2.70909 2.24091 1.06364 5.60818L4.40455 8.1C5.19091 5.73636 7.39545 3.97727 10 3.97727Z" fill="#EA4335"/>
+            </svg>
+            <span id="modalGoogleBtnText">Continue with Google</span>
+          </button>
+          
+          <div class="text-center text-gray-500 text-xs md:text-sm">
+            By continuing, you agree to our <a href="#" class="text-indigo-600 hover:underline font-medium">Terms</a> and <a href="#" class="text-indigo-600 hover:underline font-medium">Privacy Policy</a>.
+          </div>
+          
+          <div class="text-center pt-4 md:pt-6 border-t">
+            <p class="text-gray-600 text-sm md:text-base">Already have an account?</p>
+            <button id="switchAuthBtn" class="mt-2 text-indigo-600 font-semibold hover:underline text-sm md:text-base">Log in with Google instead</button>
+          </div>
+        </div>
+      </div>
+      
+      <button id="closeAuthModal" class="absolute top-4 right-4 w-8 h-8 md:w-10 md:h-10 rounded-full hover:bg-gray-100 flex items-center justify-center">
+        <i class="fas fa-times text-gray-500 text-lg md:text-xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // DOM Elements
+    const navbar = document.getElementById('navbar');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const googleAuthModal = document.getElementById('googleAuthModal');
+    const authModalTitle = document.getElementById('authModalTitle');
+    const modalGoogleBtn = document.getElementById('modalGoogleBtn');
+    const modalGoogleBtnText = document.getElementById('modalGoogleBtnText');
+    const closeAuthModal = document.getElementById('closeAuthModal');
+    const switchAuthBtn = document.getElementById('switchAuthBtn');
+    
+    // Google signup buttons
+    const googleSignupButtons = [
+      document.getElementById('signupBtn'),
+      document.getElementById('heroSignupBtn'),
+      document.getElementById('worksSignupBtn'),
+      document.getElementById('finalSignupBtn'),
+      document.getElementById('mobileSignupBtn'),
+      modalGoogleBtn
+    ];
+    
+    // Google login buttons
+    const googleLoginButtons = [
+      document.getElementById('loginBtn'),
+      document.getElementById('finalLoginBtn'),
+      document.getElementById('mobileLoginBtn'),
+      switchAuthBtn
+    ];
+    
+    // FAQ elements
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    // State
+    let isSignupMode = true;
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('navbar-scrolled');
+        } else {
+          navbar.classList.remove('navbar-scrolled');
+        }
+      });
+      
+      // Mobile menu toggle - FIXED
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+          mobileMenu.classList.add('mobile-menu-open');
+        }, 10);
+      });
+      
+      closeMobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.remove('mobile-menu-open');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 500);
+      });
+      
+      mobileMenuOverlay.addEventListener('click', () => {
+        mobileMenu.classList.remove('mobile-menu-open');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 500);
+      });
+      
+      // Open Google auth modal for signup
+      googleSignupButtons.forEach(btn => {
+        if (btn) {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            isSignupMode = true;
+            authModalTitle.textContent = 'Sign Up with Google';
+            modalGoogleBtnText.textContent = 'Continue with Google';
+            switchAuthBtn.textContent = 'Log in with Google instead';
+            googleAuthModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+          });
+        }
+      });
+      
+      // Open Google auth modal for login
+      googleLoginButtons.forEach(btn => {
+        if (btn) {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            isSignupMode = false;
+            authModalTitle.textContent = 'Log In with Google';
+            modalGoogleBtnText.textContent = 'Continue with Google';
+            switchAuthBtn.textContent = 'Sign up with Google instead';
+            googleAuthModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+          });
+        }
+      });
+      
+      // Switch between signup and login in modal
+      switchAuthBtn.addEventListener('click', () => {
+        if (isSignupMode) {
+          isSignupMode = false;
+          authModalTitle.textContent = 'Log In with Google';
+          modalGoogleBtnText.textContent = 'Continue with Google';
+          switchAuthBtn.textContent = 'Sign up with Google instead';
+        } else {
+          isSignupMode = true;
+          authModalTitle.textContent = 'Sign Up with Google';
+          modalGoogleBtnText.textContent = 'Continue with Google';
+          switchAuthBtn.textContent = 'Log in with Google instead';
+        }
+      });
+      
+      // Handle Google authentication
+      modalGoogleBtn.addEventListener('click', () => {
+        // Show loading state
+        const originalText = modalGoogleBtnText.textContent;
+        modalGoogleBtnText.innerHTML = '<div class="loading"></div>';
+        modalGoogleBtn.disabled = true;
+        
+        // Simulate Google OAuth process
+        setTimeout(() => {
+          // In a real implementation, this would redirect to Google OAuth
+          // For demo, we'll show success and redirect to dashboard
+          alert(`Successfully ${isSignupMode ? 'signed up' : 'logged in'} with Google! Redirecting to dashboard...`);
+          
+          // Reset button
+          modalGoogleBtnText.textContent = originalText;
+          modalGoogleBtn.disabled = false;
+          
+          // Close modal
+          closeAuthModal.click();
+          
+          // Redirect to your dashboard
+          // window.location.href = 'dashboard.html';
+        }, 1500);
+      });
+      
+      // Close auth modal
+      closeAuthModal.addEventListener('click', () => {
+        googleAuthModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      });
+      
+      // Close modal when clicking outside
+      googleAuthModal.addEventListener('click', (e) => {
+        if (e.target === googleAuthModal) {
+          googleAuthModal.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+      });
+      
+      // FAQ toggle - FIXED
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          const icon = question.querySelector('i');
+          
+          answer.classList.toggle('hidden');
+          icon.classList.toggle('rotate-180');
+        });
+      });
+      
+      // Smooth scrolling for anchor links - FIXED
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            mobileMenu.classList.remove('mobile-menu-open');
+            setTimeout(() => {
+              mobileMenu.classList.add('hidden');
+            }, 500);
+          }
+        });
+      });
+      
+      // Initialize animations on scroll
+      initAnimations();
+      
+      // Initialize counter animations
+      initCounters();
+    });
+    
+    // Animation on scroll
+    function initAnimations() {
+      const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+      
+      const fadeInOnScroll = () => {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 100;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+          }
+        });
+      };
+      
+      // Check on load and scroll
+      window.addEventListener('load', fadeInOnScroll);
+      window.addEventListener('scroll', fadeInOnScroll);
+      
+      // Initial check
+      fadeInOnScroll();
+    }
+    
+    // Counter animation - FIXED FOR MOBILE
+    function initCounters() {
+      const counters = document.querySelectorAll('.counter');
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const suffix = counter.textContent.replace(/\d/g, '');
+        let count = 0;
+        const increment = target / 50; // Smoother animation
+        
+        const updateCount = () => {
+          if (count < target) {
+            count += increment;
+            counter.textContent = Math.floor(count) + suffix;
+            setTimeout(updateCount, 30);
+          } else {
+            counter.textContent = target + suffix;
+          }
+        };
+        
+        // Start counter when element is in view
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              updateCount();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        observer.observe(counter);
+      });
+    }
+  </script>
+</body>
+</html>
