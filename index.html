@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
     content="Premium Instagram followers, likes, views, and engagement services. Fast delivery, real growth.">
+  <script src="profile.js"></script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -138,12 +139,18 @@
       <span
         class="heading text-lg bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">FollowersHub</span>
     </div>
-    <div class="flex gap-3 text-sm">
+    <div class="flex gap-2 sm:gap-3 text-xs sm:text-sm">
       <button onclick="openAuth('signup')"
-        class="px-4 py-1.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition">Sign Up</button>
+        class="hidden px-3 py-1 sm:px-4 sm:py-1.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+        Sign Up
+      </button>
+
       <button onclick="openAuth('login')"
-        class="px-4 py-1.5 bg-black text-white rounded-lg hover:bg-gray-800 transition">Login</button>
+        class="hidden px-3 py-1 sm:px-4 sm:py-1.5 bg-black text-white rounded-lg hover:bg-gray-800 transition">
+        Login
+      </button>
     </div>
+
   </nav>
 
 
@@ -162,10 +169,10 @@
           <div class="min-w-full">
             <picture>
               <!-- DESKTOP -->
-              <source media="(min-width:768px)" srcset="d1.png">
+              <source media="(min-width:768px)" srcset="/images/d1.png">
 
               <!-- MOBILE -->
-              <img src="p1.png" class="w-full 
+              <img src="/images/p1.png" class="w-full 
                       h-auto md:h-[260px]
                       object-contain md:object-cover
                       bg-white" loading="lazy" alt="Instagram Followers Growth">
@@ -178,7 +185,7 @@
               <source media="(min-width:768px)"
                 srcset="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=1400&h=350&fit=crop">
 
-              <img src="p2.png" class="w-full 
+              <img src="/images/p2.png" class="w-full 
                       h-auto md:h-[260px]
                       object-contain md:object-cover
                       bg-white" loading="lazy" alt="Instagram Likes">
@@ -191,7 +198,7 @@
               <source media="(min-width:768px)"
                 srcset="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=1400&h=350&fit=crop">
 
-              <img src="p3.png" class="w-full 
+              <img src="/images/p3.png" class="w-full 
                       h-auto md:h-[260px]
                       object-contain md:object-cover
                       bg-white" loading="lazy" alt="Instagram Reels Views">
@@ -225,9 +232,11 @@
 
       </div>
     </div>
+    <br>
+
 
     <!-- WALLET -->
-    <div class="px-4 mt-4">
+    <div class="hidden px-4 mt-4">
       <div class="border rounded-2xl p-4 flex justify-between items-center bg-white shadow-sm">
         <div>
           <div class="flex items-center gap-2">
@@ -246,6 +255,7 @@
     <!-- SERVICE TABS -->
     <div class="px-4 py-4">
       <h3 class="heading text-lg mb-3">Select Service</h3>
+      
       <div class="flex gap-2 overflow-x-auto pb-2">
         <button
           class="tab px-5 py-2.5 rounded-xl border text-sm font-medium active-tab whitespace-nowrap flex items-center gap-2"
@@ -260,7 +270,8 @@
           onclick="loadService('reels',this)">
           <i class="fas fa-play-circle"></i> Reel Likes
         </button>
-        <button class="hidden px-5 py-2.5 rounded-xl border text-sm font-medium whitespace-nowrap flex items-center gap-2"
+        <button
+          class="hidden px-5 py-2.5 rounded-xl border text-sm font-medium whitespace-nowrap flex items-center gap-2"
           onclick="loadService('views',this)">
           <i class="fas fa-eye"></i> Views
         </button>
@@ -268,7 +279,7 @@
     </div>
 
     <br>
-    
+
 
     <!-- PLANS -->
     <div id="plans" class="px-4 grid grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pb-20">
@@ -299,13 +310,15 @@
   <!-- ================= ACCOUNT ================= -->
   <section id="account" class="hidden px-4 py-4 fade-in">
     <div class="flex items-center gap-4 mb-6">
-      <div class="w-16 h-16 rounded-full insta-gradient flex items-center justify-center">
-        <span class="text-white text-xl font-bold">DU</span>
+      <div id="profileAvatar"
+        class="w-16 h-16 rounded-full overflow-hidden insta-gradient flex items-center justify-center">
+        <span id="avatarText" class="text-white text-xl font-bold">DU</span>
       </div>
+
       <div>
-        <h2 class="heading text-lg">Demo User</h2>
-        <p class="text-gray-500 text-sm">demo@email.com</p>
-        <p class="text-xs text-gray-400">Member since Dec 2024</p>
+        <h2 id="accountName" class="heading text-lg">Demo User</h2>
+        <p id="accountEmail" class="text-gray-500 text-sm">demo@email.com</p>
+        <p id="memberSince" class="text-xs text-gray-400">Member since Dec 2024</p>
       </div>
     </div>
 
@@ -338,8 +351,9 @@
         <i class="fas fa-chevron-right text-gray-400"></i>
       </button>
 
-      <button onclick="logout()"
+      <button onclick="openLogoutModal()"
         class="w-full border rounded-xl p-3 text-left hover:bg-red-50 transition flex items-center justify-between mt-4">
+
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
             <i class="fas fa-sign-out-alt text-red-600"></i>
@@ -349,8 +363,11 @@
             <p class="text-xs text-red-500">Sign out from device</p>
           </div>
         </div>
+
         <i class="fas fa-chevron-right text-red-400"></i>
       </button>
+
+
     </div>
   </section>
 
@@ -537,8 +554,7 @@
                 PLEASE ENTER VALID INSTA USERNAME
               </p>
 
-              <button onclick="resetToScreen1Form()"
-                class="mt-4 px-6 py-2 bg-black text-white rounded-lg">
+              <button onclick="resetToScreen1Form()" class="mt-4 px-6 py-2 bg-black text-white rounded-lg">
                 Try Another Username
               </button>
             </div>
@@ -557,7 +573,8 @@
 
           <div class="border rounded-xl p-4 bg-gray-50">
             <div class="flex items-center gap-3">
-              <img id="profilePic" src="https://i.pravatar.cc/80" class="w-12 h-12 rounded-full border-2 border-white shadow">
+              <img id="profilePic" src="https://i.pravatar.cc/80"
+                class="w-12 h-12 rounded-full border-2 border-white shadow">
               <div>
                 <p class="font-bold" id="profileUsername">@username</p>
                 <p class="text-xs text-gray-500">
@@ -687,6 +704,30 @@
       </div>
     </div>
   </div>
+  <!--CUSTON LOGOUT MODAL -->
+
+  <div id="logoutModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+    <div class="bg-white rounded-2xl p-6 w-80 shadow-xl">
+
+      <h2 class="text-lg font-semibold mb-2">Confirm Logout</h2>
+      <p class="text-sm text-gray-500 mb-4">
+        Are you sure you want to sign out?
+      </p>
+
+      <div class="flex justify-end gap-3">
+        <button onclick="closeLogoutModal()" class="px-4 py-2 text-gray-500">
+          Cancel
+        </button>
+
+        <button onclick="confirmLogout()" class="px-4 py-2 bg-red-600 text-white rounded-lg">
+          Logout
+        </button>
+      </div>
+
+    </div>
+  </div>
+
 
   <script>
     // ========== GLOBAL STATE ==========
@@ -874,7 +915,7 @@
       document.getElementById("screen1").classList.remove("hidden");
       document.getElementById("screen2").classList.add("hidden");
       document.getElementById("screen3").classList.add("hidden");
-      
+
       // Show form, hide error
       document.getElementById("screen1-form").classList.remove("hidden");
       document.getElementById("screen1-error").classList.add("hidden");
@@ -955,9 +996,9 @@
           "@" + data.username;
 
         document.getElementById("profileFollowers").textContent =
-          data.followers >= 1000
-            ? (data.followers / 1000).toFixed(1) + "K"
-            : data.followers;
+          data.followers >= 1000 ?
+          (data.followers / 1000).toFixed(1) + "K" :
+          data.followers;
 
         document.getElementById("profileFollowing").textContent =
           data.following;
@@ -975,7 +1016,7 @@
 
       } catch (err) {
         console.error(err);
-        
+
         // Show error message without breaking the modal structure
         document.getElementById("error-username").textContent = "@" + username;
         document.getElementById("screen1-form").classList.add("hidden");
@@ -1191,11 +1232,22 @@
       document.getElementById("notificationsModal").classList.add("hidden");
     }
 
-    function logout() {
-      if (confirm("Are you sure you want to logout?")) {
-        alert("Logged out successfully!");
-        show('home');
-      }
+    function openLogoutModal() {
+      const modal = document.getElementById("logoutModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeLogoutModal() {
+      const modal = document.getElementById("logoutModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function confirmLogout() {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("user");
+      window.location.replace("index.html");
     }
 
     function refreshHistory() {
@@ -1225,7 +1277,6 @@
       });
     });
   </script>
-
 </body>
 
 </html>
