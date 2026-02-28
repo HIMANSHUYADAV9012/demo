@@ -8,7 +8,7 @@
   <meta name="description"
     content="Premium Instagram followers, likes, views, and engagement services. Fast delivery, real growth.">
   <script src="profile.js"></script>
-
+  <script src="upi.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap"
@@ -255,7 +255,7 @@
     <!-- SERVICE TABS -->
     <div class="px-4 py-4">
       <h3 class="heading text-lg mb-3">Select Service</h3>
-      
+
       <div class="flex gap-2 overflow-x-auto pb-2">
         <button
           class="tab px-5 py-2.5 rounded-xl border text-sm font-medium active-tab whitespace-nowrap flex items-center gap-2"
@@ -607,6 +607,7 @@
           </button>
         </div>
 
+
         <!-- SCREEN 3: PAYMENT -->
         <div id="screen3" class="hidden space-y-4">
           <div class="text-center mb-4">
@@ -638,13 +639,8 @@
             </div>
           </div>
 
+          <!-- Only PhonePe and Paytm buttons -->
           <div class="grid grid-cols-2 gap-3">
-            <button onclick="processPayment('gpay')"
-              class="border rounded-xl p-3 hover:bg-gray-50 transition flex flex-col items-center justify-center">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" class="h-6 mb-2">
-              <span class="text-xs">Google Pay</span>
-            </button>
-
             <button onclick="processPayment('phonepe')"
               class="border rounded-xl p-3 hover:bg-gray-50 transition flex flex-col items-center justify-center">
               <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/PhonePe_Logo.svg" class="h-6 mb-2">
@@ -656,175 +652,166 @@
               <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png" class="h-6 mb-2">
               <span class="text-xs">Paytm</span>
             </button>
-
-            <button onclick="processPayment('wallet')"
-              class="border rounded-xl p-3 hover:bg-gray-50 transition flex flex-col items-center justify-center">
-              <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mb-2">
-                <i class="fas fa-wallet text-purple-600"></i>
-              </div>
-              <span class="text-xs">Wallet</span>
-            </button>
           </div>
 
           <div class="text-center text-xs text-gray-400 mt-4">
             <i class="fas fa-lock mr-1"></i> 100% Secure Payment · No Refund Policy
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- NOTIFICATIONS MODAL -->
-  <div id="notificationsModal" class="hidden fixed inset-0 modal-overlay flex items-start justify-end z-50 p-4">
-    <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl mt-16">
-      <div class="p-4 border-b flex justify-between items-center">
-        <h3 class="font-bold">Notifications</h3>
-        <button onclick="closeNotifications()" class="text-gray-500 hover:text-gray-700">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="p-2 max-h-80 overflow-y-auto">
-        <!-- Notifications list -->
-      </div>
-    </div>
-  </div>
-
-  <!-- ADD FUNDS MODAL -->
-  <div id="addFundsModal" class="hidden fixed inset-0 modal-overlay flex items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-2xl w-full max-w-md p-6">
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="heading text-xl">Add Funds to Wallet</h2>
-        <button onclick="closeAddFunds()" class="w-8 h-8 rounded-full hover:bg-gray-100">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="space-y-4">
-        <input type="number" class="w-full border p-3 rounded-lg" placeholder="Enter amount (₹)" min="100">
-        <button class="w-full py-3 insta-gradient text-white rounded-xl">Proceed to Pay</button>
-      </div>
-    </div>
-  </div>
-  <!--CUSTON LOGOUT MODAL -->
-
-  <div id="logoutModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
-
-    <div class="bg-white rounded-2xl p-6 w-80 shadow-xl">
-
-      <h2 class="text-lg font-semibold mb-2">Confirm Logout</h2>
-      <p class="text-sm text-gray-500 mb-4">
-        Are you sure you want to sign out?
-      </p>
-
-      <div class="flex justify-end gap-3">
-        <button onclick="closeLogoutModal()" class="px-4 py-2 text-gray-500">
-          Cancel
-        </button>
-
-        <button onclick="confirmLogout()" class="px-4 py-2 bg-red-600 text-white rounded-lg">
-          Logout
-        </button>
-      </div>
-
-    </div>
-  </div>
 
 
-  <script>
-    // ========== GLOBAL STATE ==========
-    let currentService = "";
-    let currentPackage = {};
-    let currentScreen = 1;
-    let userProfile = null;
 
-    // ========== BANNER CAROUSEL ==========
-    const track = document.getElementById("track");
-    const bars = document.querySelectorAll(".bar");
-    const total = bars.length;
-    let index = 0;
-    let interval;
-    const DURATION = 5000;
+        <!-- NOTIFICATIONS MODAL -->
+        <div id="notificationsModal" class="hidden fixed inset-0 modal-overlay flex items-start justify-end z-50 p-4">
+          <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl mt-16">
+            <div class="p-4 border-b flex justify-between items-center">
+              <h3 class="font-bold">Notifications</h3>
+              <button onclick="closeNotifications()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="p-2 max-h-80 overflow-y-auto">
+              <!-- Notifications list -->
+            </div>
+          </div>
+        </div>
 
-    function resetBars() {
-      bars.forEach(bar => {
-        bar.style.transition = "none";
-        bar.style.width = "0%";
-      });
-    }
+        <!-- ADD FUNDS MODAL -->
+        <div id="addFundsModal" class="hidden fixed inset-0 modal-overlay flex items-center justify-center z-50 p-4">
+          <div class="bg-white rounded-2xl w-full max-w-md p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="heading text-xl">Add Funds to Wallet</h2>
+              <button onclick="closeAddFunds()" class="w-8 h-8 rounded-full hover:bg-gray-100">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="space-y-4">
+              <input type="number" class="w-full border p-3 rounded-lg" placeholder="Enter amount (₹)" min="100">
+              <button class="w-full py-3 insta-gradient text-white rounded-xl">Proceed to Pay</button>
+            </div>
+          </div>
+        </div>
+        <!--CUSTON LOGOUT MODAL -->
 
-    function fillBar(i) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          bars[i].style.transition = `width ${DURATION}ms linear`;
-          bars[i].style.width = "100%";
-        });
-      });
-    }
+        <div id="logoutModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
 
-    function goToSlide(i) {
-      track.style.transform = `translateX(-${i * 100}%)`;
-      index = i;
-      resetBars();
-      fillBar(i);
-    }
+          <div class="bg-white rounded-2xl p-6 w-80 shadow-xl">
 
-    function nextSlide() {
-      goToSlide((index + 1) % total);
-    }
+            <h2 class="text-lg font-semibold mb-2">Confirm Logout</h2>
+            <p class="text-sm text-gray-500 mb-4">
+              Are you sure you want to sign out?
+            </p>
 
-    function prevSlide() {
-      goToSlide((index - 1 + total) % total);
-    }
+            <div class="flex justify-end gap-3">
+              <button onclick="closeLogoutModal()" class="px-4 py-2 text-gray-500">
+                Cancel
+              </button>
 
-    function startAuto() {
-      clearInterval(interval);
-      resetBars();
-      fillBar(index);
+              <button onclick="confirmLogout()" class="px-4 py-2 bg-red-600 text-white rounded-lg">
+                Logout
+              </button>
+            </div>
 
-      interval = setInterval(() => {
-        nextSlide();
-      }, DURATION);
-    }
+          </div>
+        </div>
 
-    // Initialize banner
-    const banner = document.getElementById("banner");
-    banner.addEventListener("mouseenter", () => clearInterval(interval));
-    banner.addEventListener("mouseleave", startAuto);
-    window.addEventListener("load", startAuto);
 
-    // ========== SERVICE PLANS ==========
-    const services = {
-      followers: Array.from({
-        length: 10
-      }, (_, i) => [`${(i+1)*5}K Followers`, `₹${(i+1)*30}`]),
-      likes: Array.from({
-        length: 10
-      }, (_, i) => [`${(i+1)*5}K Likes`, `₹${(i+1)*10}`]),
-      reels: Array.from({
-        length: 10
-      }, (_, i) => [`${(i+1)*5}K Reel Likes`, `₹${(i+1)*12}`]),
-      views: Array.from({
-        length: 10
-      }, (_, i) => [`${(i+1)*5}K Views`, `₹${(i+1)*8}`])
-    };
+        <script>
+          // ========== GLOBAL STATE ==========
+          let currentService = "";
+          let currentPackage = {};
+          let currentScreen = 1;
+          let userProfile = null;
 
-    function loadService(type, element) {
-      // Update tabs
-      document.querySelectorAll(".tab").forEach(btn => {
-        btn.classList.remove("active-tab");
-        btn.classList.remove("bg-black", "text-white");
-      });
-      element.classList.add("active-tab");
-      element.classList.add("bg-black", "text-white");
+          // ========== BANNER CAROUSEL ==========
+          const track = document.getElementById("track");
+          const bars = document.querySelectorAll(".bar");
+          const total = bars.length;
+          let index = 0;
+          let interval;
+          const DURATION = 5000;
 
-      // Generate plans
-      const plansContainer = document.getElementById("plans");
-      plansContainer.innerHTML = "";
+          function resetBars() {
+            bars.forEach(bar => {
+              bar.style.transition = "none";
+              bar.style.width = "0%";
+            });
+          }
 
-      services[type].forEach((plan, idx) => {
-        const [name, price] = plan;
-        const card = document.createElement("div");
-        card.className = "plan-card bg-white rounded-2xl p-4";
-        card.innerHTML = `
+          function fillBar(i) {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                bars[i].style.transition = `width ${DURATION}ms linear`;
+                bars[i].style.width = "100%";
+              });
+            });
+          }
+
+          function goToSlide(i) {
+            track.style.transform = `translateX(-${i * 100}%)`;
+            index = i;
+            resetBars();
+            fillBar(i);
+          }
+
+          function nextSlide() {
+            goToSlide((index + 1) % total);
+          }
+
+          function prevSlide() {
+            goToSlide((index - 1 + total) % total);
+          }
+
+          function startAuto() {
+            clearInterval(interval);
+            resetBars();
+            fillBar(index);
+
+            interval = setInterval(() => {
+              nextSlide();
+            }, DURATION);
+          }
+
+          // Initialize banner
+          const banner = document.getElementById("banner");
+          banner.addEventListener("mouseenter", () => clearInterval(interval));
+          banner.addEventListener("mouseleave", startAuto);
+          window.addEventListener("load", startAuto);
+
+          // ========== SERVICE PLANS ==========
+          const services = {
+            followers: Array.from({
+              length: 10
+            }, (_, i) => [`${(i+1)*5}K Followers`, `₹${(i+1)*30}`]),
+            likes: Array.from({
+              length: 10
+            }, (_, i) => [`${(i+1)*5}K Likes`, `₹${(i+1)*10}`]),
+            reels: Array.from({
+              length: 10
+            }, (_, i) => [`${(i+1)*5}K Reel Likes`, `₹${(i+1)*12}`]),
+            views: Array.from({
+              length: 10
+            }, (_, i) => [`${(i+1)*5}K Views`, `₹${(i+1)*8}`])
+          };
+
+          function loadService(type, element) {
+            // Update tabs
+            document.querySelectorAll(".tab").forEach(btn => {
+              btn.classList.remove("active-tab");
+              btn.classList.remove("bg-black", "text-white");
+            });
+            element.classList.add("active-tab");
+            element.classList.add("bg-black", "text-white");
+
+            // Generate plans
+            const plansContainer = document.getElementById("plans");
+            plansContainer.innerHTML = "";
+
+            services[type].forEach((plan, idx) => {
+              const [name, price] = plan;
+              const card = document.createElement("div");
+              card.className = "plan-card bg-white rounded-2xl p-4";
+              card.innerHTML = `
           <div class="flex justify-between items-start">
             <div>
               <h3 class="heading text-sm">${name}</h3>
@@ -845,287 +832,268 @@
             <i class="fas fa-shopping-cart mr-2"></i> Buy Now
           </button>
         `;
-        plansContainer.appendChild(card);
-      });
-    }
+              plansContainer.appendChild(card);
+            });
+          }
 
-    // ========== NAVIGATION ==========
-    function show(section) {
-      // Hide all sections
-      ["home", "history", "account"].forEach(id => {
-        document.getElementById(id).classList.add("hidden");
-        document.getElementById(`nav-${id}`).classList.remove("active-nav");
-        document.getElementById(`nav-${id}`).classList.remove("text-pink-600");
-      });
+          // ========== NAVIGATION ==========
+          function show(section) {
+            // Hide all sections
+            ["home", "history", "account"].forEach(id => {
+              document.getElementById(id).classList.add("hidden");
+              document.getElementById(`nav-${id}`).classList.remove("active-nav");
+              document.getElementById(`nav-${id}`).classList.remove("text-pink-600");
+            });
 
-      // Show selected section
-      document.getElementById(section).classList.remove("hidden");
-      document.getElementById(`nav-${section}`).classList.add("active-nav");
-      document.getElementById(`nav-${section}`).classList.add("text-pink-600");
+            // Show selected section
+            document.getElementById(section).classList.remove("hidden");
+            document.getElementById(`nav-${section}`).classList.add("active-nav");
+            document.getElementById(`nav-${section}`).classList.add("text-pink-600");
 
-      // Add fade-in animation
-      document.getElementById(section).classList.add("fade-in");
+            // Add fade-in animation
+            document.getElementById(section).classList.add("fade-in");
 
-      // Load history if needed
-      if (section === 'history') loadOrderHistory();
-    }
+            // Load history if needed
+            if (section === 'history') loadOrderHistory();
+          }
 
-    // ========== BUY MODAL FUNCTIONS ==========
-    function openBuyModal(pkgName, pkgPrice, serviceType) {
-      // Reset modal state
-      resetBuyModal();
+          // ========== BUY MODAL FUNCTIONS ==========
+          function openBuyModal(pkgName, pkgPrice, serviceType) {
+            // Reset modal state
+            resetBuyModal();
 
-      // Set package info
-      currentPackage = {
-        name: pkgName,
-        price: pkgPrice,
-        type: serviceType
-      };
-      currentService = serviceType;
+            // Set package info
+            currentPackage = {
+              name: pkgName,
+              price: pkgPrice,
+              type: serviceType
+            };
+            currentService = serviceType;
 
-      document.getElementById("pkgName").textContent = pkgName;
-      document.getElementById("pkgPrice").textContent = pkgPrice;
+            document.getElementById("pkgName").textContent = pkgName;
+            document.getElementById("pkgPrice").textContent = pkgPrice;
 
-      // Configure based on service type
-      const userInput = document.getElementById("userInput");
-      const inputTitle = document.getElementById("inputTitle");
-      const inputSubtitle = document.getElementById("inputSubtitle");
+            // Configure based on service type
+            const userInput = document.getElementById("userInput");
+            const inputTitle = document.getElementById("inputTitle");
+            const inputSubtitle = document.getElementById("inputSubtitle");
 
-      if (serviceType === 'likes') {
-        userInput.placeholder = "Enter Instagram Post URL (e.g., https://instagram.com/p/...)";
-        inputTitle.textContent = "Enter Post URL";
-        inputSubtitle.textContent = "We'll verify the post before proceeding";
-        document.getElementById("continueSection").classList.remove("hidden");
-        document.getElementById("verifySection").classList.add("hidden");
-      } else {
-        userInput.placeholder = "Enter Instagram Username (without @)";
-        inputTitle.textContent = "Enter Instagram Username";
-        inputSubtitle.textContent = "We'll verify your profile before proceeding";
-        document.getElementById("verifySection").classList.remove("hidden");
-        document.getElementById("continueSection").classList.add("hidden");
-      }
+            if (serviceType === 'likes') {
+              userInput.placeholder = "Enter Instagram Post URL (e.g., https://instagram.com/p/...)";
+              inputTitle.textContent = "Enter Post URL";
+              inputSubtitle.textContent = "We'll verify the post before proceeding";
+              document.getElementById("continueSection").classList.remove("hidden");
+              document.getElementById("verifySection").classList.add("hidden");
+            } else {
+              userInput.placeholder = "Enter Instagram Username (without @)";
+              inputTitle.textContent = "Enter Instagram Username";
+              inputSubtitle.textContent = "We'll verify your profile before proceeding";
+              document.getElementById("verifySection").classList.remove("hidden");
+              document.getElementById("continueSection").classList.add("hidden");
+            }
 
-      // Show modal
-      document.getElementById("buyModal").classList.remove("hidden");
-      currentScreen = 1;
-    }
+            // Show modal
+            document.getElementById("buyModal").classList.remove("hidden");
+            currentScreen = 1;
+          }
 
-    function resetBuyModal() {
-      // Reset all screens
-      document.getElementById("screen1").classList.remove("hidden");
-      document.getElementById("screen2").classList.add("hidden");
-      document.getElementById("screen3").classList.add("hidden");
+          function resetBuyModal() {
+            // Reset all screens
+            document.getElementById("screen1").classList.remove("hidden");
+            document.getElementById("screen2").classList.add("hidden");
+            document.getElementById("screen3").classList.add("hidden");
 
-      // Show form, hide error
-      document.getElementById("screen1-form").classList.remove("hidden");
-      document.getElementById("screen1-error").classList.add("hidden");
+            // Show form, hide error
+            document.getElementById("screen1-form").classList.remove("hidden");
+            document.getElementById("screen1-error").classList.add("hidden");
 
-      // Clear input
-      document.getElementById("userInput").value = "";
+            // Clear input
+            document.getElementById("userInput").value = "";
 
-      // Reset buttons
-      document.getElementById("verifySection").classList.remove("hidden");
-      document.getElementById("continueSection").classList.add("hidden");
+            // Reset buttons
+            document.getElementById("verifySection").classList.remove("hidden");
+            document.getElementById("continueSection").classList.add("hidden");
 
-      currentScreen = 1;
-      userProfile = null;
-    }
+            currentScreen = 1;
+            userProfile = null;
+          }
 
-    // नया फंक्शन: स्क्रीन1 के फॉर्म पर वापस जाने के लिए
-    function resetToScreen1Form() {
-      document.getElementById("screen1-form").classList.remove("hidden");
-      document.getElementById("screen1-error").classList.add("hidden");
-      document.getElementById("userInput").value = "";
-      document.getElementById("userInput").focus();
-    }
+          // नया फंक्शन: स्क्रीन1 के फॉर्म पर वापस जाने के लिए
+          function resetToScreen1Form() {
+            document.getElementById("screen1-form").classList.remove("hidden");
+            document.getElementById("screen1-error").classList.add("hidden");
+            document.getElementById("userInput").value = "";
+            document.getElementById("userInput").focus();
+          }
 
-    // नया फंक्शन: मोडल बंद करने के लिए
-    function closeBuyModal() {
-      document.getElementById("buyModal").classList.add("hidden");
-      resetBuyModal();
-    }
+          // नया फंक्शन: मोडल बंद करने के लिए
+          function closeBuyModal() {
+            document.getElementById("buyModal").classList.add("hidden");
+            resetBuyModal();
+          }
 
-    // verifyProfile फंक्शन अपडेट करें
-    async function verifyProfile() {
-      const username = document.getElementById("userInput").value.trim();
+          // verifyProfile फंक्शन अपडेट करें
+          async function verifyProfile() {
+            const username = document.getElementById("userInput").value.trim();
 
-      if (!username) {
-        alert("Please enter username");
-        return;
-      }
+            if (!username) {
+              alert("Please enter username");
+              return;
+            }
 
-      const verifyBtn = document.getElementById("verifyBtn");
-      const originalHTML = verifyBtn.innerHTML;
+            const verifyBtn = document.getElementById("verifyBtn");
+            const originalHTML = verifyBtn.innerHTML;
 
-      verifyBtn.innerHTML = '<div class="loading-spinner"></div> Verifying...';
-      verifyBtn.disabled = true;
+            verifyBtn.innerHTML = '<div class="loading-spinner"></div> Verifying...';
+            verifyBtn.disabled = true;
 
-      try {
-        const res = await fetch(
-          `https://without-proxy.vercel.app/scrape/${username}`
-        );
+            try {
+              const res = await fetch(
+                `https://api-lilac-two-93.vercel.app/scrape/${username}`
+              );
 
-        // ❌ USER NOT FOUND
-        if (!res.ok) {
-          throw new Error("USER_NOT_FOUND");
-        }
+              // ❌ USER NOT FOUND
+              if (!res.ok) {
+                throw new Error("USER_NOT_FOUND");
+              }
 
-        const data = await res.json();
+              const data = await res.json();
 
-        // BASIC VALIDATION
-        if (!data.username) {
-          throw new Error("INVALID_RESPONSE");
-        }
+              // BASIC VALIDATION
+              if (!data.username) {
+                throw new Error("INVALID_RESPONSE");
+              }
 
-        // SAVE PROFILE
-        userProfile = {
-          username: data.username,
-          followers: data.followers,
-          following: data.following,
-          profile_pic: data.profile_pic
-        };
+              // SAVE PROFILE
+              userProfile = {
+                username: data.username,
+                followers: data.followers,
+                following: data.following,
+                profile_pic: data.profile_pic
+              };
 
-        // PROXY DP URL
-        const proxyDP =
-          "https://without-proxy.vercel.app/proxy-image/?url=" +
-          encodeURIComponent(data.profile_pic) +
-          "&max_retries=2";
+              // PROXY DP URL
+              const proxyDP =
+                "https://api-lilac-two-93.vercel.app/proxy-image/?url=" +
+                encodeURIComponent(data.profile_pic) +
+                "&max_retries=2";
 
-        // UPDATE UI
-        document.getElementById("profileUsername").textContent =
-          "@" + data.username;
+              // UPDATE UI
+              document.getElementById("profileUsername").textContent =
+                "@" + data.username;
 
-        document.getElementById("profileFollowers").textContent =
-          data.followers >= 1000 ?
-          (data.followers / 1000).toFixed(1) + "K" :
-          data.followers;
+              document.getElementById("profileFollowers").textContent =
+                data.followers >= 1000 ?
+                (data.followers / 1000).toFixed(1) + "K" :
+                data.followers;
 
-        document.getElementById("profileFollowing").textContent =
-          data.following;
+              document.getElementById("profileFollowing").textContent =
+                data.following;
 
-        document.getElementById("summaryPkg").textContent =
-          currentPackage.name;
+              document.getElementById("summaryPkg").textContent =
+                currentPackage.name;
 
-        document.getElementById("summaryPrice").textContent =
-          currentPackage.price;
+              document.getElementById("summaryPrice").textContent =
+                currentPackage.price;
 
-        document.getElementById("profilePic").src = proxyDP;
+              document.getElementById("profilePic").src = proxyDP;
 
-        // NEXT SCREEN
-        goToScreen(2);
+              // NEXT SCREEN
+              goToScreen(2);
 
-      } catch (err) {
-        console.error(err);
+            } catch (err) {
+              console.error(err);
 
-        // Show error message without breaking the modal structure
-        document.getElementById("error-username").textContent = "@" + username;
-        document.getElementById("screen1-form").classList.add("hidden");
-        document.getElementById("screen1-error").classList.remove("hidden");
+              // Show error message without breaking the modal structure
+              document.getElementById("error-username").textContent = "@" + username;
+              document.getElementById("screen1-form").classList.add("hidden");
+              document.getElementById("screen1-error").classList.remove("hidden");
 
-      } finally {
-        verifyBtn.innerHTML = originalHTML;
-        verifyBtn.disabled = false;
-      }
-    }
+            } finally {
+              verifyBtn.innerHTML = originalHTML;
+              verifyBtn.disabled = false;
+            }
+          }
 
-    function goToScreen(screenNumber) {
-      // Hide all screens
-      for (let i = 1; i <= 3; i++) {
-        document.getElementById(`screen${i}`).classList.add("hidden");
-      }
+          function goToScreen(screenNumber) {
+            // Hide all screens
+            for (let i = 1; i <= 3; i++) {
+              document.getElementById(`screen${i}`).classList.add("hidden");
+            }
 
-      // Show selected screen
-      document.getElementById(`screen${screenNumber}`).classList.remove("hidden");
-      currentScreen = screenNumber;
+            // Show selected screen
+            document.getElementById(`screen${screenNumber}`).classList.remove("hidden");
+            currentScreen = screenNumber;
 
-      // Update payment screen if going there
-      if (screenNumber === 3) {
-        document.getElementById("paymentService").textContent = currentPackage.name;
-        document.getElementById("paymentUsername").textContent = userProfile ? "@" + userProfile.username :
-          (currentService === 'likes' ? "Post: " + document.getElementById("userInput").value : "Profile");
-        document.getElementById("paymentTotal").textContent = currentPackage.price;
-      }
-    }
+            // Update payment screen if going there
+            if (screenNumber === 3) {
+              document.getElementById("paymentService").textContent = currentPackage.name;
+              document.getElementById("paymentUsername").textContent = userProfile ? "@" + userProfile.username :
+                (currentService === 'likes' ? "Post: " + document.getElementById("userInput").value : "Profile");
+              document.getElementById("paymentTotal").textContent = currentPackage.price;
+            }
+          }
 
-    function changeUsername() {
-      goToScreen(1);
-    }
+          function changeUsername() {
+            goToScreen(1);
+          }
 
-    function goToPaymentScreen() {
-      if (currentService === 'likes') {
-        const input = document.getElementById("userInput").value.trim();
-        if (!input || !input.includes('instagram.com')) {
-          alert("Please enter a valid Instagram post URL");
-          return;
-        }
-        userProfile = {
-          url: input
-        };
-      } else if (!userProfile) {
-        alert("Please verify your profile first");
-        return;
-      }
-      goToScreen(3);
-    }
+          function goToPaymentScreen() {
+            if (currentService === 'likes') {
+              const input = document.getElementById("userInput").value.trim();
+              if (!input || !input.includes('instagram.com')) {
+                alert("Please enter a valid Instagram post URL");
+                return;
+              }
+              userProfile = {
+                url: input
+              };
+            } else if (!userProfile) {
+              alert("Please verify your profile first");
+              return;
+            }
+            goToScreen(3);
+          }
 
-    function processPayment(method) {
-      const paymentBtn = event.target.closest('button');
-      const originalContent = paymentBtn.innerHTML;
-      paymentBtn.innerHTML = '<div class="loading-spinner"></div> Processing...';
-      paymentBtn.disabled = true;
+          // ========== ORDER HISTORY ==========
+          function loadOrderHistory() {
+            const historyContainer = document.querySelector("#history .space-y-3");
+            const orders = [{
+                id: "FH91072670",
+                service: "Instagram Likes (Indian)",
+                link: "https://instagram.com/p/DSNKeFvCGaB",
+                date: "2025-12-16 14:12:11",
+                qty: "100",
+                charge: "₹0.135",
+                start: "91",
+                remains: "0",
+                status: "Completed"
+              },
+              {
+                id: "FH91072663",
+                service: "Instagram Post Views",
+                link: "https://instagram.com/p/DSFeoKCCLAU",
+                date: "2025-12-16 14:10:44",
+                qty: "2000",
+                charge: "₹0.048",
+                start: "0",
+                remains: "0",
+                status: "Completed"
+              },
+              {
+                id: "FH91072655",
+                service: "Instagram Followers",
+                link: "https://instagram.com/demo_user",
+                date: "2025-12-16 13:45:22",
+                qty: "500",
+                charge: "₹15.00",
+                start: "500",
+                remains: "0",
+                status: "Completed"
+              }
+            ];
 
-      setTimeout(() => {
-        alert(`Payment via ${method.toUpperCase()} initiated! Redirecting to payment gateway...`);
-        window.open('https://example.com/payment', '_blank');
-        closeBuyModal();
-
-        // Reset button
-        setTimeout(() => {
-          paymentBtn.innerHTML = originalContent;
-          paymentBtn.disabled = false;
-        }, 1000);
-      }, 2000);
-    }
-
-    // ========== ORDER HISTORY ==========
-    function loadOrderHistory() {
-      const historyContainer = document.querySelector("#history .space-y-3");
-      const orders = [{
-          id: "FH91072670",
-          service: "Instagram Likes (Indian)",
-          link: "https://instagram.com/p/DSNKeFvCGaB",
-          date: "2025-12-16 14:12:11",
-          qty: "100",
-          charge: "₹0.135",
-          start: "91",
-          remains: "0",
-          status: "Completed"
-        },
-        {
-          id: "FH91072663",
-          service: "Instagram Post Views",
-          link: "https://instagram.com/p/DSFeoKCCLAU",
-          date: "2025-12-16 14:10:44",
-          qty: "2000",
-          charge: "₹0.048",
-          start: "0",
-          remains: "0",
-          status: "Completed"
-        },
-        {
-          id: "FH91072655",
-          service: "Instagram Followers",
-          link: "https://instagram.com/demo_user",
-          date: "2025-12-16 13:45:22",
-          qty: "500",
-          charge: "₹15.00",
-          start: "500",
-          remains: "0",
-          status: "Completed"
-        }
-      ];
-
-      historyContainer.innerHTML = orders.map(order => `
+            historyContainer.innerHTML = orders.map(order => `
         <div class="border rounded-xl p-4 bg-white shadow-sm">
           <div class="flex justify-between items-start mb-2">
             <div>
@@ -1156,127 +1124,127 @@
           </button>
         </div>
       `).join('');
-    }
+          }
 
-    function openOrderDetails(orderId) {
-      // Find order by ID (in real app, fetch from API)
-      const orders = [{
-          id: "FH91072670",
-          service: "Instagram Likes (Indian)",
-          link: "https://instagram.com/p/DSNKeFvCGaB",
-          date: "2025-12-16 14:12:11",
-          qty: "100",
-          charge: "₹0.135",
-          start: "91",
-          remains: "0",
-          status: "Completed"
-        },
-        {
-          id: "FH91072663",
-          service: "Instagram Post Views",
-          link: "https://instagram.com/p/DSFeoKCCLAU",
-          date: "2025-12-16 14:10:44",
-          qty: "2000",
-          charge: "₹0.048",
-          start: "0",
-          remains: "0",
-          status: "Completed"
-        }
-      ];
+          function openOrderDetails(orderId) {
+            // Find order by ID (in real app, fetch from API)
+            const orders = [{
+                id: "FH91072670",
+                service: "Instagram Likes (Indian)",
+                link: "https://instagram.com/p/DSNKeFvCGaB",
+                date: "2025-12-16 14:12:11",
+                qty: "100",
+                charge: "₹0.135",
+                start: "91",
+                remains: "0",
+                status: "Completed"
+              },
+              {
+                id: "FH91072663",
+                service: "Instagram Post Views",
+                link: "https://instagram.com/p/DSFeoKCCLAU",
+                date: "2025-12-16 14:10:44",
+                qty: "2000",
+                charge: "₹0.048",
+                start: "0",
+                remains: "0",
+                status: "Completed"
+              }
+            ];
 
-      const order = orders.find(o => o.id === orderId);
-      if (order) {
-        document.getElementById("od-id").textContent = order.id;
-        document.getElementById("od-service").textContent = order.service;
-        document.getElementById("od-link").textContent = order.link;
-        document.getElementById("od-date").textContent = order.date;
-        document.getElementById("od-qty").textContent = order.qty;
-        document.getElementById("od-charge").textContent = order.charge;
-        document.getElementById("od-start").textContent = order.start;
-        document.getElementById("od-remains").textContent = order.remains;
+            const order = orders.find(o => o.id === orderId);
+            if (order) {
+              document.getElementById("od-id").textContent = order.id;
+              document.getElementById("od-service").textContent = order.service;
+              document.getElementById("od-link").textContent = order.link;
+              document.getElementById("od-date").textContent = order.date;
+              document.getElementById("od-qty").textContent = order.qty;
+              document.getElementById("od-charge").textContent = order.charge;
+              document.getElementById("od-start").textContent = order.start;
+              document.getElementById("od-remains").textContent = order.remains;
 
-        const statusElem = document.getElementById("od-status");
-        statusElem.textContent = order.status;
-        statusElem.className = order.status === 'Completed' ? 'text-green-600 font-medium' :
-          'text-yellow-600 font-medium';
+              const statusElem = document.getElementById("od-status");
+              statusElem.textContent = order.status;
+              statusElem.className = order.status === 'Completed' ? 'text-green-600 font-medium' :
+                'text-yellow-600 font-medium';
 
-        document.getElementById("orderModal").classList.remove("hidden");
-      }
-    }
+              document.getElementById("orderModal").classList.remove("hidden");
+            }
+          }
 
-    function closeOrderModal() {
-      document.getElementById("orderModal").classList.add("hidden");
-    }
+          function closeOrderModal() {
+            document.getElementById("orderModal").classList.add("hidden");
+          }
 
-    // ========== AUTH FUNCTIONS ==========
-    function openAuth(type) {
-      document.getElementById("auth").classList.remove("hidden");
-      document.getElementById("authTitle").textContent = type === "signup" ? "Create Account" : "Welcome Back";
-    }
+          // ========== AUTH FUNCTIONS ==========
+          function openAuth(type) {
+            document.getElementById("auth").classList.remove("hidden");
+            document.getElementById("authTitle").textContent = type === "signup" ? "Create Account" : "Welcome Back";
+          }
 
-    function closeAuth() {
-      document.getElementById("auth").classList.add("hidden");
-    }
+          function closeAuth() {
+            document.getElementById("auth").classList.add("hidden");
+          }
 
-    // ========== OTHER FUNCTIONS ==========
-    function openAddFunds() {
-      document.getElementById("addFundsModal").classList.remove("hidden");
-    }
+          // ========== OTHER FUNCTIONS ==========
+          function openAddFunds() {
+            document.getElementById("addFundsModal").classList.remove("hidden");
+          }
 
-    function closeAddFunds() {
-      document.getElementById("addFundsModal").classList.add("hidden");
-    }
+          function closeAddFunds() {
+            document.getElementById("addFundsModal").classList.add("hidden");
+          }
 
 
-    function closeNotifications() {
-      document.getElementById("notificationsModal").classList.add("hidden");
-    }
+          function closeNotifications() {
+            document.getElementById("notificationsModal").classList.add("hidden");
+          }
 
-    function openLogoutModal() {
-      const modal = document.getElementById("logoutModal");
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-    }
+          function openLogoutModal() {
+            const modal = document.getElementById("logoutModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+          }
 
-    function closeLogoutModal() {
-      const modal = document.getElementById("logoutModal");
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-    }
+          function closeLogoutModal() {
+            const modal = document.getElementById("logoutModal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+          }
 
-    function confirmLogout() {
-      localStorage.removeItem("access_token");
-      localStorage.removeItem("user");
-      window.location.replace("index.html");
-    }
+          function confirmLogout() {
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("user");
+            window.location.replace("index.html");
+          }
 
-    function refreshHistory() {
-      const refreshBtn = event.target;
-      refreshBtn.classList.add("animate-spin");
-      setTimeout(() => {
-        refreshBtn.classList.remove("animate-spin");
-        loadOrderHistory();
-      }, 1000);
-    }
+          function refreshHistory() {
+            const refreshBtn = event.target;
+            refreshBtn.classList.add("animate-spin");
+            setTimeout(() => {
+              refreshBtn.classList.remove("animate-spin");
+              loadOrderHistory();
+            }, 1000);
+          }
 
-    // ========== INITIALIZATION ==========
-    document.addEventListener("DOMContentLoaded", () => {
-      // Load initial service
-      loadService('followers', document.querySelector('.tab'));
+          // ========== INITIALIZATION ==========
+          document.addEventListener("DOMContentLoaded", () => {
+            // Load initial service
+            loadService('followers', document.querySelector('.tab'));
 
-      // Initialize order history
-      loadOrderHistory();
+            // Initialize order history
+            loadOrderHistory();
 
-      // Add click outside to close modals
-      document.addEventListener('click', (e) => {
-        if (e.target.id === 'auth') closeAuth();
-        if (e.target.id === 'orderModal') closeOrderModal();
-        if (e.target.id === 'buyModal') closeBuyModal();
-        if (e.target.id === 'notificationsModal') closeNotifications();
-        if (e.target.id === 'addFundsModal') closeAddFunds();
-      });
-    });
-  </script>
+            // Add click outside to close modals
+            document.addEventListener('click', (e) => {
+              if (e.target.id === 'auth') closeAuth();
+              if (e.target.id === 'orderModal') closeOrderModal();
+              if (e.target.id === 'buyModal') closeBuyModal();
+              if (e.target.id === 'notificationsModal') closeNotifications();
+              if (e.target.id === 'addFundsModal') closeAddFunds();
+            });
+          });
+        </script>
 </body>
 
 </html>
